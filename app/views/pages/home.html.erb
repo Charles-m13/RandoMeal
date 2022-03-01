@@ -1,2 +1,51 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="banner">
+  <div class="banner-content text-center">
+
+  <img src="/app/assets/images/image_banner.png" />
+    <h1>Gagner du temps et de l'argent avec vos repas !</h1>
+    <p>Planifier, générer et organiser vos repas de la semaine en seulement quelques clics</p>
+    <%= link_to "Get started", class: "btn btn-lg btn-primary"  %>
+  </div>
+</section>
+
+
+<section class="container">
+<div class="card-product" style="width: 18rem;" class="one">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+<div class="card-product" style="width: 18rem;" class="oned" >
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+</section>
+
+<section class="container">
+<div class="row" class="flex" class="card-product" style="width: 18rem;">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+</section>
+
+    <%# <%= render "shared/card", title: 'toto', description: 'tetsts' %>
+<div class="container" class="footer" >
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    © 2022-2022 RandoMeal ® - Tous droits réservés <i class="fas fa-heart"></i>
+  </div>
+</div>
