@@ -1,41 +1,88 @@
-
-██████   █████  ███    ██ ██████   ██████  ███    ███ ███████  █████  ██      
-██   ██ ██   ██ ████   ██ ██   ██ ██    ██ ████  ████ ██      ██   ██ ██      
-██████  ███████ ██ ██  ██ ██   ██ ██    ██ ██ ████ ██ █████   ███████ ██      
-██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██      
-██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████ 
-
 <html>
+
+    <!-- ██████   █████  ███    ██ ██████   ██████  ███    ███ ███████  █████  ██       -->
+    <!-- ██   ██ ██   ██ ████   ██ ██   ██ ██    ██ ████  ████ ██      ██   ██ ██       -->
+    <!-- ██████  ███████ ██ ██  ██ ██   ██ ██    ██ ██ ████ ██ █████   ███████ ██       -->
+    <!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
+    <!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
+
   <head>
     <title>RandoMeal, l'ultime planificateur de menu pour votre semaine! </title>
-    <meta name="description" content="RandoMeal. Planifie votre menu de la semaine pour manger.">
+    <meta name="description" content="RandoMeal. Planifie votre menu de la semaine pour manger.">    
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UTF-8 because we are French ! -->
     <meta charset="utf-8">
     <!-- CSS in app>assets>stylesheets>components>_navbar.scss -->
-    <link rel="stylesheet" href="app/assets/stylesheets/components/_navbar.scss">
+    <%# <link rel="stylesheet" href="app/assets/stylesheets/components/_navbar.scss"> %>
     <!-- JS in app/javascript/packs/application.js -->
   </head>
 
   <body>
-    <nav class="menu">
-      <ul>
-        <li><a href="#Accueil">Accueil</a></li>
-        <li><a href="#Apropos">À propos</a></li>
-        <li><a href="#Contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <h1>[Welcome]</h1>
-
-    <h2>[...]</h2>
-
-    <h3>[...]</h3>
-
-    <h4>[...]</h4>
-
-    <h5>[...]</h5>
-
-    <h6>[...]</h6>
-
-
+    <center>
+    <!-- Description -->
+    <br>
+      <h1>Bienvenue sur RandoMeal</h1>
+      <h2>Voici votre menu de la semaine</h2>
+    <br>
+    <!-- Checkboxes -->
+    <form action="#">
+      <p>
+        <label>
+          <input type="checkbox" class="vegetarien" checked="checked" />
+          <span>Végétarien</span>
+        </label>
+        <label>
+          <input type="checkbox" class="sans-gluten" checked="checked" />
+          <span>Sans gluten</span>
+        </label>
+        <label>
+          <input type="checkbox" class="vegan" checked="checked" />
+          <span>Végan</span>
+        </label>
+        <label>
+          <input type="checkbox" class="sans-lactose" checked="checked" />
+          <span>Sans lactose</span>
+        </label>
+        <label>
+          <input type="checkbox" class="recettes-equilibrees" checked="checked" />
+          <span>Recettes équilibrées (Nutriscore A et B)</span>
+        </label>
+      </p>
+      <!-- Button Refresh -->
+      <a href="" target="_blank">Relance le générateur</a>
+      <br>
+      <br>
+    </form>
+    
+    <!-- Planificateur -->
+    <div class="container">
+      <div class="row">
+        <div class="col">Lundi</div>
+        <div class="col">Mardi</div>
+        <div class="col">Mercredi</div>
+        <div class="col">Jeudi</div>
+        <div class="col">Vendredi</div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!-- Contact -->
+    <h3>Notre Equipe</h3>
+    <p>Pour contacter l'équipe : contact@randomeal.xyz</p>
+    <br>
+    <ul class="list-inline">
+        <li>
+          <a href="https://www.linkedin.com/in/charles13/" target="_blank">Charles</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/deborah-martin-developpeur-web-fullstack/" target="_blank">Deborah</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/pierrelemasson/" target="_blank">Pierre</a>
+        </li>
+    </ul>
+    <!-- Footer -->
+    <center>
   </body>
 </html>
