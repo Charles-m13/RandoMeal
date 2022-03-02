@@ -1,0 +1,26 @@
+.banner {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(180deg, rgba(1,36,0,1) 0%, rgba(9,121,32,0.49205619747899154) 47%, rgba(255,255,255,1) 80%),
+              asset_url('table_banner.jpg');
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: white;
+    opacity: .8;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 15px 50px;
+  }
+}
