@@ -1,10 +1,30 @@
+.container-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D5D6AA;
+  height: 40vh;
+}
+
+.container-card2 {
+  background-color: #f3f3de;
+
+}
+
+.container-team {
+  background-color: #aacc8e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  // align-items: center;
 }
 
 .card-product img {
@@ -29,15 +49,4 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-}
-
-.one {
-  position:relative;
-  width:60%;
-  }
-
-.oned {
-  position:relative;
-    left:60%;
-    width:40%;
 }
