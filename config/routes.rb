@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'plans#home'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get    "plans",          to: "plans#index"
   get    "plans/new",      to: "plans#new"
