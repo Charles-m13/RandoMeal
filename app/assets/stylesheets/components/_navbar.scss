@@ -1,3 +1,4 @@
+
 /* navbar.scss */
 
 .navbar-lewagon {
@@ -11,5 +12,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+=======
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: black;
+    font-weight: bold;
+  }
 }
 

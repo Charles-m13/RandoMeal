@@ -1,2 +1,82 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="banner">
+<div><%= image_tag "logo_randomeal.png", class: "logo" %></div>
+  <div class="banner-content text-center">
+
+    <h1>Gagner du temps et de l'argent avec vos repas !</h1>
+    <p>Planifier, générer et organiser vos repas de la semaine en seulement quelques clics</p>
+    <%= link_to "Get started", class: "btn btn-lg btn-primary"  %>
+  </div>
+
+</section>
+
+
+<section class="container-card mt-0 mb-0 ">
+<div class="card-product" class="col-12 col-sm-6 col-lg-4" style="width: 18rem;" >
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+<div class="card-product" style="width: 18rem;" >
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+<div>
+<h3>Trouvez l'inspiration</h3>
+  <p>Qu'on aime la cuisine ou non, decider de ce que nous allons manger peut representer une veritable corvée... Alors laissez nous faire et <strong>régalez vous !!</strong>
+Filtrer vos exigences parmi nos 190235 recettes, un click et le tour est joué !
+Si le menu ne vous satisfait pas, un simple click et un nouveau menu se présente a vous.</p>
+</div>
+</section>
+
+<section class="container-card2" >
+<div class="row" class="flex" class="card-product" style="width: 18rem;">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Planifiez vos repas facilement</h2>
+    <p>Planifier vos repas semaines après semaines n'a jamais été aussi agréable ! Ajoutez autant de repas que vous voulez dans une journée et associez y des recettes à partir de votre carnet et de vos menus.</p>
+  </div>
+</div>
+</section>
+
+<section class="container-team" >
+<div class="row">
+    <h2>L'équipe RandoMeal </h2>
+    <div class="col-12 col-md-4">
+      <p>Deborah</p>
+     <%= image_tag "Deborah.jpg", class: "avatar-square" %>
+    </div>
+    <div class="col-12 col-md-4">
+      <p>Pierre</p>
+     <%= image_tag "pierre.png", class: "avatar-square" %>
+    </div>
+    <div class="col-12 col-md-4">
+
+    <p>Charles</p>
+     <%= image_tag "charles.png", class: "avatar-square" %>
+    </div>
+
+
+  </div>
+</div>
+</section>
+
+
+
+
+
+    <%# <%= render "shared/card", title: 'toto', description: 'tetsts' %>
+<div class="container" class="footer" >
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    © 2022-2022 RandoMeal ® - Tous droits réservés <i class="fas fa-heart"></i>
+  </div>
+</div>
