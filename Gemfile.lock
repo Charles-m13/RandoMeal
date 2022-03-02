@@ -64,6 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
+    awesome_print (1.9.2)
     bindex (0.8.1)
     bootsnap (1.10.3)
       msgpack (~> 1.2)
@@ -230,6 +231,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
+  awesome_print (~> 1.9)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
