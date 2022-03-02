@@ -1,23 +1,4 @@
 <html>
-
-    <!-- ██████   █████  ███    ██ ██████   ██████  ███    ███ ███████  █████  ██       -->
-    <!-- ██   ██ ██   ██ ████   ██ ██   ██ ██    ██ ████  ████ ██      ██   ██ ██       -->
-    <!-- ██████  ███████ ██ ██  ██ ██   ██ ██    ██ ██ ████ ██ █████   ███████ ██       -->
-    <!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
-    <!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
-
-  <head>
-    <title>RandoMeal, l'ultime planificateur de menu pour votre semaine! </title>
-    <meta name="description" content="RandoMeal. Planifie votre menu de la semaine pour manger.">    
-    <!-- Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- UTF-8 because we are French ! -->
-    <meta charset="utf-8">
-    <!-- CSS in app>assets>stylesheets>components>_navbar.scss -->
-    <%# <link rel="stylesheet" href="app/assets/stylesheets/components/_navbar.scss"> %>
-    <!-- JS in app/javascript/packs/application.js -->
-  </head>
-
   <body>
     <center>
     <!-- Description -->
@@ -46,47 +27,93 @@
         </label>
         <label>
           <input type="checkbox" class="recettes-equilibrees" checked="checked" />
-          <span>Recettes équilibrées (Nutriscore A et B)</span>
+          <span>Recettes équilibrées</span>
         </label>
       </p>
       <!-- Button Refresh -->
-      <a href="" target="_blank">Relance le générateur</a>
-      <br>
-      <br>
+      <button class="button"><a href="http://www.randomeal.xyz" target="_blank">Relance le générateur</a></button>
       <!-- Button Export -->
-      <br>
-      <a href="" target="_blank">Relance le générateur</a>
+      <button class="button button2"><a href="http://www.randomeal.xyz" target="_blank">Exporter mon menu</a></button>
       <br>
     </form>
-    
+    <br>
     <!-- Planificateur -->
-    <div class="container">
+    <div class="flex-container">
       <div class="row">
-        <div class="col">Lundi</div>
-        <div class="col">Mardi</div>
-        <div class="col">Mercredi</div>
-        <div class="col">Jeudi</div>
-        <div class="col">Vendredi</div>
+        <div class="flex-item col s12 m6 l3"></div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Lundi</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="flex-item col s12 m6 l3"></div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Mardi</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="flex-item col s12 m6 l3"></div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Mercredi</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="flex-item col s12 m6 l3"></div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Jeudi</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="flex-item col s12 m6 l3"></div>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Vendredi</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
       </div>
     </div>
     <br>
     <br>
+
+        
     <!-- Contact -->
     <h3>Notre Equipe</h3>
     <p>Pour contacter l'équipe : contact@randomeal.xyz</p>
     <br>
-    <ul class="list-inline">
-        <li>
-          <a href="https://www.linkedin.com/in/charles13/" target="_blank">Charles</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/deborah-martin-developpeur-web-fullstack/" target="_blank">Deborah</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/pierrelemasson/" target="_blank">Pierre</a>
-        </li>
-    </ul>
     <!-- Footer -->
+    <footer>
+      <div class="wrapper">
+        <div class="footer-section">
+          <div class="column">
+            <span>Charles</span>
+            <a href="https://www.linkedin.com/in/charles13/" target="_blank">Charles</a>
+          </div>
+          <div class="column">
+            <span>Deborah</span>
+            <a href="https://www.linkedin.com/in/deborah-martin-developpeur-web-fullstack/" target="_blank">Deborah</a>
+          </div>
+          <div class="column">
+            <span>Pierre</span>
+            <a href="https://www.linkedin.com/in/pierrelemasson/" target="_blank">Pierre</a>
+          </div>
+        </div>
+      </div>
+    </footer>  
     <center>
   </body>
 </html>
