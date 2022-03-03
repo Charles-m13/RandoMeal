@@ -1,119 +1,18 @@
-<html>
-  <body>
-    <center>
-    <!-- Description -->
-    <br>
-      <h1>Bienvenue sur RandoMeal</h1>
-      <h2>Voici votre menu de la semaine</h2>
-    <br>
-    <!-- Checkboxes -->
-    <form action="#">
-      <p>
-        <label>
-          <input type="checkbox" class="vegetarien" checked="checked" />
-          <span>Végétarien</span>
-        </label>
-        <label>
-          <input type="checkbox" class="sans-gluten" checked="checked" />
-          <span>Sans gluten</span>
-        </label>
-        <label>
-          <input type="checkbox" class="vegan" checked="checked" />
-          <span>Végan</span>
-        </label>
-        <label>
-          <input type="checkbox" class="sans-lactose" checked="checked" />
-          <span>Sans lactose</span>
-        </label>
-        <label>
-          <input type="checkbox" class="recettes-equilibrees" checked="checked" />
-          <span>Recettes équilibrées</span>
-        </label>
-      </p>
-      <!-- Button Refresh -->
-      <button class="button"><a href="http://www.randomeal.xyz" target="_blank">Relance le générateur</a></button>
-      <!-- Button Export -->
-      <button class="button button2"><a href="http://www.randomeal.xyz" target="_blank">Exporter mon menu</a></button>
-      <br>
-    </form>
-    <br>
-    <!-- Planificateur -->
-    <div class="flex-container">
-      <div class="row">
-        <div class="flex-item col s12 m6 l3"></div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Lundi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        <div class="flex-item col s12 m6 l3"></div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Mardi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        <div class="flex-item col s12 m6 l3"></div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Mercredi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        <div class="flex-item col s12 m6 l3"></div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Jeudi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        <div class="flex-item col s12 m6 l3"></div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Vendredi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-      </div>
-    </div>
-    <br>
-    <br>
+<div class="wrapper">
 
-        
-    <!-- Contact -->
-    <h3>Notre Equipe</h3>
-    <p>Pour contacter l'équipe : contact@randomeal.xyz</p>
-    <br>
-    <!-- Footer -->
-    <footer>
-      <div class="wrapper">
-        <div class="footer-section">
-          <div class="column">
-            <span>Charles</span>
-            <a href="https://www.linkedin.com/in/charles13/" target="_blank">Charles</a>
-          </div>
-          <div class="column">
-            <span>Deborah</span>
-            <a href="https://www.linkedin.com/in/deborah-martin-developpeur-web-fullstack/" target="_blank">Deborah</a>
-          </div>
-          <div class="column">
-            <span>Pierre</span>
-            <a href="https://www.linkedin.com/in/pierrelemasson/" target="_blank">Pierre</a>
-          </div>
+   <div class="plan-randomizer">
+    <div class="row">
+      <div class="col-12 col-md">
+        <div class="day">
+          <h3>Lundi</h3>
+          <%= render 'shared/card' %>
         </div>
       </div>
-    </footer>  
-    <center>
-  </body>
-</html>
+      <div class="col-12 col-md">prout prout</div>
+      <div class="col-12 col-md">prout prout</div>
+      <div class="col-12 col-md">prout prout</div>
+      <div class="col-12 col-md">prout prout</div>
+    </div>
+   </div>
+
+</div>
