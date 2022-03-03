@@ -2,6 +2,7 @@ class PlansController < ApplicationController
 
   def index
     # @plans = Plan.all
+    @recipe = Recipe.first
   end
 
   def new
