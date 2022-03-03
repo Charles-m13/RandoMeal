@@ -35,15 +35,16 @@ thermomix = Tag.create!(name: "thermomix")
 puts ""
 puts "Tags created"
 
+puts "Creating recipes without tags"
+urls.each {|url| ImportRecipe.new(url).call }
 
 puts "Creating recipes without tags"
+urls_vegetarien.each {|url| ImportRecipe.new(url, vege).call }
 
+puts "Creating recipes without tags"
+urls_thermomix.each {|url| ImportRecipe.new(url, thermomix).call }
 
-# urls.each {|url| ImportRecipe.new(url).call }
-# urls_vegetarien.each {|url| ImportRecipe.new(url, vege).call }
-# urls_thermomix.each {|url| ImportRecipe.new(url, thermomix).call }
-
-ImportRecipe.new("https://www.marmiton.org/recettes/recette_poulet-curry-et-oignons-facile-au-thermomix_383530.aspx", thermomix).call
+# ImportRecipe.new("https://www.marmiton.org/recettes/recette_poulet-curry-et-oignons-facile-au-thermomix_383530.aspx", thermomix).call
 
 puts ""
 puts "Finished"
