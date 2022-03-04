@@ -1,8 +1,7 @@
 class PlansController < ApplicationController
 
   def index
-    # @plans = Plan.all
-    @recipe = Recipe.first
+    @recipes = Recipe.order('RANDOM()').limit(5)
   end
 
   def new
