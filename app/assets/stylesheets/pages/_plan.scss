@@ -1,6 +1,57 @@
+.header {
+  margin: 2rem 0;
+  text-align: center;
+
+  h1 {
+    color: $green-dark;
+  }
+}
+
+.tools {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  span {
+    padding: 0.5rem 1.5rem;
+    background-color: $white;
+    border: 1px solid $fire;
+    border-radius: $border-radius;
+    color: $fire;
+
+    &:hover {
+      box-shadow: 1px 2px 9px rgba(black, 0.13);
+    }
+  }
+}
+
 .plan-randomizer {
   width: 100%;
+  padding: 0.5rem;
   .day {
     padding: 2rem;
+    border: 1px dashed $fire;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+
+    .day-name {
+      text-align: center;
+      color: $fire;
+    }
+  }
+}
+
+.content-randomizer {
+  margin: 3rem 0;
+  text-align: center;
+  font-family: $headers-font;
+  font-weight: 400;
+
+  .randomizer {
+    margin-left: 2rem;
+    box-shadow: 1px 2px 9px rgba(black, 0.13);
   }
 }

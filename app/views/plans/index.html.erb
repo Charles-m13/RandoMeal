@@ -1,18 +1,56 @@
 <div class="wrapper">
 
-   <div class="plan-randomizer">
-    <div class="row">
-      <div class="col-12 col-md">
-        <div class="day">
-          <h3>Lundi</h3>
-          <%= render 'shared/card' %>
+      <div class="header">
+        <h1>Vos recettes de la semaine</h1>
+        <p>du variable au variable</p>
+      </div>
+
+      <div class="tools">
+        <span>Végétarien</span>
+        <span>Vegan</span>
+        <span>Sans gluten</span>
+        <span>Thermomix</span>
+      </div>
+
+
+
+    <div class="plan-randomizer">
+      <div class="row">
+        <div class="col-12 col-md">
+          <div class="day">
+            <h3 class="day-name">Lundi</h3>
+            <%= render 'shared/card' %>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="day">
+            <h3 class="day-name">Mardi</h3>
+            <%= render 'shared/card' %>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="day">
+            <h3 class="day-name">Mercredi</h3>
+            <%= render 'shared/card' %>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="day">
+            <h3 class="day-name">Jeudi</h3>
+            <%= render 'shared/card' %>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="day">
+            <h3 class="day-name">Vendredi</h3>
+            <%= render 'shared/card' %>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-md">prout prout</div>
-      <div class="col-12 col-md">prout prout</div>
-      <div class="col-12 col-md">prout prout</div>
-      <div class="col-12 col-md">prout prout</div>
     </div>
-   </div>
 
+    <div class="content-randomizer">
+      <span>Pressez la barre d'espace ou cliquez sur le bouton !</span>
+      <span class="btn btn--primary randomizer">RandoMizer</span>
+    </div>
 </div>

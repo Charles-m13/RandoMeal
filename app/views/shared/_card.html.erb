@@ -1,7 +1,11 @@
 <div class="card-recipe">
   <div class="card-recipe--top">
     <%= image_tag @recipe.image, class: "card-recipe--top__img" %>
-    <i class="fa fa-unlock top-right" aria-hidden="true"></i>
+    <div class="icon-content">
+      <i class="fa fa-unlock" aria-hidden="true"></i>
+      <i class="fa fa-lock" aria-hidden="true"></i>
+
+    </div>
   </div>
   <div class="card-recipe--content">
     <h3><%= @recipe.name %></h3>
