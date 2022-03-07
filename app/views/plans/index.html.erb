@@ -53,4 +53,10 @@
       <span>Pressez la barre d'espace ou cliquez sur le bouton !</span>
       <span class="btn btn--primary randomizer">RandoMizer</span>
     </div>
+    </p>
+    <div class="content-wicked_pdf">
+      <span>Exporter le menu de la semaine : </span>
+      <span class="btn btn--primary export">
+      <%= link_to 'Export', plans_path(@recipes, :format => :pdf) %></span>
+    </div>
 </div>
