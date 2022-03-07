@@ -1,10 +1,28 @@
 class PlansController < ApplicationController
 
+  # Le def/index sert pour le bouton export (gem WickedPdf)
   def index
+    # @plans = Plan.all
+    @recipe = Recipe.first
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", template: "plans/index.html.erb"             # Excluding ".pdf" extension.
+              # print_media_type: true        # Passes `--print-media-type`
+              # no_background: true           # Passes `--no-background`
+      end
+    end
+  end
+
+
+  def show
     @recipes = Recipe.order('RANDOM()').limit(5)
   end
 
   def new
+  end
+
+  def edit
   end
 
   def create
@@ -13,14 +31,10 @@ class PlansController < ApplicationController
     # redirect_to plan_path(@plan)
   end
 
-  def show
-    # @plan = Plan.find(params[:id])
+  def update
   end
 
   def save
-  end
-
-  def edit
   end
 
   def destroy
@@ -34,5 +48,4 @@ class PlansController < ApplicationController
     # params.require(:ingredient).permit(:name, :quantity, :mesurement, :recipe_id)
     # params.require(:tag).permit(:name, :marmiton_filter)
   end
-
 end

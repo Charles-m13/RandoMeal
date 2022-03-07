@@ -30,4 +30,10 @@
     <div class="content-randomizer">
       <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
     </div>
+    </p>
+    <div class="content-wicked_pdf">
+      <span>Exporter le menu de la semaine : </span>
+      <span class="btn btn--primary export">
+      <%= link_to 'Export', plans_path(@recipes, :format => :pdf) %></span>
+    </div>
 </div>
