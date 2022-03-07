@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get    "plans",          to: "plans#index"
+  # Routes pour exporter le menu de la semaine en PDF
+  get    "export",         to: "plans#export"
   get    "plans/new",      to: "plans#new"
   post   "plans",          to: "plans#create"
   # NB: The `show` route needs to be *after* `new` route.
