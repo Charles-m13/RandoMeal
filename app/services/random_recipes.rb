@@ -1,24 +1,15 @@
 class RandomRecipes
   has_many :recipe_tags :recipes
 
-  def initialize(wihtout_ids, tags, nb)
-    @nb = nb
-    @tags = tags
+  def initialize(without_ids, nb, tag = nil)
+      @nb = nb
+      @without_ids = without_ids
+      @tag = tag
   end
 
   def call
-    # nb = 5
-    # if Tags.present?
-    #   each do |recipes|.sample .5.times
-    # else Tags.present
-    #   each do |recipes| |tags|.sample .5.times
-    # end
-    # return call
+    recipes = Recipe.where.not(id: @without_ids)
+    recipes = recipes.joins(:tags).where(tags: {id: @tag.id}) if @tag
+    recipes.sample(@nb)
   end
 end
-
-# request from js
-    # vérifier combien de recettes sont déjà locked ex: 2 recettes locks
-    # Initialiser le service avec 5 - 2 recettes, et excluant les ids des recettes déjà selectionnées
-    # chopper une recette dans le retour du service
-    # rendre la partial de cette recette

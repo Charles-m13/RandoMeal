@@ -1,7 +1,6 @@
 class PlansController < ApplicationController
 
-
-  # Le def/index sert notamment pour le bouton export (gem WickedPdf)
+  # Le def/index sert pour le bouton export (gem WickedPdf)
   def index
     # @plans = Plan.all
     @recipe = Recipe.first
@@ -17,7 +16,7 @@ class PlansController < ApplicationController
 
 
   def show
-    # @plan = Plan.find(params[:id])
+    @recipes = Recipe.order('RANDOM()').limit(5)
   end
 
   def new
@@ -49,5 +48,4 @@ class PlansController < ApplicationController
     # params.require(:ingredient).permit(:name, :quantity, :mesurement, :recipe_id)
     # params.require(:tag).permit(:name, :marmiton_filter)
   end
-
 end

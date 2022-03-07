@@ -1,8 +1,7 @@
-<div class="wrapper">
+<div class="wrapper plan-wrap">
 
       <div class="header">
         <h1>Vos recettes de la semaine</h1>
-        <p>du variable au variable</p>
       </div>
 
       <div class="tools">
@@ -16,42 +15,20 @@
 
     <div class="plan-randomizer">
       <div class="row">
+        <% days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'] %>
+        <% @recipes.each_with_index do |recipe, index| %>
         <div class="col-12 col-md">
           <div class="day">
-            <h3 class="day-name">Lundi</h3>
-            <%= render 'shared/card' %>
+            <h3 class="day-name"><%= days[index] %></h3>
+            <%= render 'shared/card', recipe: recipe %>
           </div>
         </div>
-        <div class="col-12 col-md">
-          <div class="day">
-            <h3 class="day-name">Mardi</h3>
-            <%= render 'shared/card' %>
-          </div>
-        </div>
-        <div class="col-12 col-md">
-          <div class="day">
-            <h3 class="day-name">Mercredi</h3>
-            <%= render 'shared/card' %>
-          </div>
-        </div>
-        <div class="col-12 col-md">
-          <div class="day">
-            <h3 class="day-name">Jeudi</h3>
-            <%= render 'shared/card' %>
-          </div>
-        </div>
-        <div class="col-12 col-md">
-          <div class="day">
-            <h3 class="day-name">Vendredi</h3>
-            <%= render 'shared/card' %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
     <div class="content-randomizer">
-      <span>Pressez la barre d'espace ou cliquez sur le bouton !</span>
-      <span class="btn btn--primary randomizer">RandoMizer</span>
+      <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
     </div>
     </p>
     <div class="content-wicked_pdf">
