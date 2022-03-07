@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- ██████   █████  ███    ██ ██████   ██████  ███    ███ ███████  █████  ██       -->
+<!-- ██   ██ ██   ██ ████   ██ ██   ██ ██    ██ ████  ████ ██      ██   ██ ██       -->
+<!-- ██████  ███████ ██ ██  ██ ██   ██ ██    ██ ██ ████ ██ █████   ███████ ██       -->
+<!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
+<!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
+
+<html>
+  <head>
+    <!-- UTF-8 because we are French ! -->
+    <meta charset="utf-8">
+    <!-- wicked_pdf helpers -->
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+  </head>
+  
+  <body>
+    <!-- Menu de la semaine -->
+    <div class="plan-randomizer">
+      <h2 class="day-name">Le menu de votre semaine</h2>
+        </br>
+        </br>
+        <div class="row">
+          <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+          <% @recipes.each_with_index do |recipe, index| %>
+          <div class="col-12 col-md">
+            <div class="menu-export">
+              <p>-------------------------  ʕ•ᴥ•ʔ  ------------------------------</p>
+              <h3><%= days[index] %> : <%= recipe.name %></h3>
+              <span class="card-recipe--content__prep-time"><p>• Temps de prépration : <%= recipe.prep_duration %> minutes</span></p>
+              <span class="card-recipe--content__total-time"><p>• Temps total : <%= recipe.total_duration %> minutes</span></p>
+              <span class="card-recipe--content__people"><p>• Pour <%= recipe.people %> personnes</span></p>
+              <span class="card-recipe--content__all-ingredients"><p>• Ingrédients : <%= recipe.all_ingredients %></span></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        </br>
+        </br>
+    <!-- Liste de courses -->
+    <div class="plan-shopping">
+      <h2 class="day-name">Liste des courses à faire</h2>
+        <div class="row">
+          <div class="col-12 col-md">
+            <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+              <% @recipe.ingredients.each_with_index do |ingredient, index|  %>
+              <p>• Quantité : <%= ingredient.quantity %> | Nom : <%= ingredient.name %><p>
+              <% end %>
+          </div>
+        </div>
+    </div>
+    <center>Mouliné avec ❤︎ par l'équipe RandoMeal</center>
+  <body>
+</div>

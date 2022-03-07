@@ -9,14 +9,13 @@ class PlansController < ApplicationController
       format.html
       format.pdf do
         render pdf: "file_name", template: "plans/index.html.erb"             # Excluding ".pdf" extension.
-              # print_media_type: true        # Passes `--print-media-type`
-              # no_background: true           # Passes `--no-background`
       end
     end
   end
 
   def show
-    @recipes = Recipe.order('RANDOM()').limit(5)
+    # # Affiche le menu de la semaine
+    # @recipes = Recipe.order('RANDOM()').limit(5)
   end
 
   def new
@@ -26,15 +25,28 @@ class PlansController < ApplicationController
   end
 
   def create
-    # @plan = Plan.new(plan_params)
-    # @plan.save
-    # redirect_to plan_path(@plan)
   end
 
   def update
   end
 
-  def save
+  def export
+    # Affiche le menu de la semaine
+    @recipes = Recipe.order('RANDOM()').limit(5)
+    # bouton export (gem WickedPdf)
+    @recipe = Recipe.first
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", 
+        template: "plans/pdf.html.erb",
+        title: 'RandoMeal, le menu de votre semaine', 
+        page_size: "A4", 
+        encoding: 'TEXT', 
+        font_name: 'Arial',
+        margin: {top: 12, bottom: 12, left: 15, right: 12}
+      end
+    end
   end
 
   def destroy
