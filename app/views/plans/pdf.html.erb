@@ -40,15 +40,16 @@
         </br>
     <!-- Liste de courses -->
     <div class="plan-shopping">
-      <h2 class="day-name">Liste des courses à faire</h2>
+      <h2 class="day-name">Liste des courses</h2>
         <div class="row">
           <div class="col-12 col-md">
-            <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
-              <% @recipe.ingredients.each_with_index do |ingredient, index|  %>
-              <p>• Quantité : <%= ingredient.quantity %> | Nom : <%= ingredient.name %><p>
+            <% @recipes.each do |recipe| %>
+              <% recipe.all_ingredients.each_with_index do |ingredient, index| %>
+                <p>• <%= ingredient %></p>
               <% end %>
+            <% end %>
           </div>
-        </div>
+        </div>     
     </div>
     <center>Mouliné avec ❤︎ par l'équipe RandoMeal</center>
   <body>
