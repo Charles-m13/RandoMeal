@@ -1,8 +1,9 @@
 class PlansController < ApplicationController
 
-  # Le def/index sert pour le bouton export (gem WickedPdf)
   def index
-    # @plans = Plan.all
+    # Affiche le menu de la semaine
+    @recipes = Recipe.order('RANDOM()').limit(5)
+    # bouton export (gem WickedPdf)
     @recipe = Recipe.first
     respond_to do |format|
       format.html
@@ -13,7 +14,6 @@ class PlansController < ApplicationController
       end
     end
   end
-
 
   def show
     @recipes = Recipe.order('RANDOM()').limit(5)
