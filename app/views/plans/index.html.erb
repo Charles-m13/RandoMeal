@@ -5,12 +5,14 @@
     <h1>Vos recettes de la semaine</h1>
 
     <!-- Filtres des menus -->
-    <div class="tools">
-      <input type="checkbox" id="vege"><label for="vege">Végétarien</label>
-      <input type="checkbox" id="vegan"><label for="vegan">Vegan</label>
-      <input type="checkbox" id="sansgluten"><label for="sansgluten">Sans gluten</label>
-      <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
-    </div>
+
+      <div class="tools">
+        <span class="filter" data-week-target="filter" data-filter="vegetarien" data-action="click->week#addFilter">Végétarien</span>
+        <span class="filter" data-week-target="filter" data-filter="vegan" data-action="click->week#addFilter">Vegan</span>
+        <span class="filter" data-week-target="filter" data-filter="sans gluten" data-action="click->week#addFilter">Sans gluten</span>
+        <span class="filter" data-week-target="filter" data-filter="thermomix" data-action="click->week#addFilter">Thermomix</span>
+      </div>
+
 
     <!-- Menu de la semaine -->
     <div class="plan-randomizer">
@@ -34,11 +36,12 @@
                   <span class="btn btn--small lock">Bloqué</span>
                 </div>
               </div>
-            </div>            
+            </div>       
           </div>
         <% end %>
       </div>
     </div>
+
   </div>
     <!-- Les boutons -->
     <div class="plan-buttons">

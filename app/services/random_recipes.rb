@@ -1,5 +1,5 @@
 class RandomRecipes
-  has_many :recipe_tags :recipes
+  # has_many :recipe_tags, :recipes
 
   def initialize(without_ids, nb, tag = nil)
       @nb = nb

@@ -39,10 +39,15 @@ class PlansController < ApplicationController
     already_proposed = cookies[:already_proposed].split(',')
     nb = 5 - plan_recipes.length
 
-    new_recipes = RandomRecipes.new(already_proposed, nb).call
+    if params[:filter].present?
+      tag = Tag.find_by(name: params[:filter])
+      ap tag
+    end
+
+    new_recipes = RandomRecipes.new(already_proposed, nb, tag ||= nil ).call
+    ap new_recipes
     already_proposed += new_recipes.map(&:id)
     cookies[:already_proposed] = already_proposed.map(&:to_s).join(',')
-
     recipe_cards = new_recipes.map do |recipe|
       render_to_string(partial: "shared/card", locals: { recipe: recipe })
     end
