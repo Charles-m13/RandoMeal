@@ -1,4 +1,4 @@
-<div class="card-recipe">
+<div class="card-recipe" data-controller="expander" data-expander-target="output">
   <div class="card-recipe--top">
     <%= image_tag recipe.image, class: "card-recipe--top__img" %>
     <div class="icon-content">
@@ -9,8 +9,18 @@
   </div>
   <div class="card-recipe--content">
     <h3><%= recipe.name %></h3>
-    <span class="card-recipe--content__price"><%= recipe.price %></span>
+    <span class="card-recipe--content__price"><%= recipe.price %> €</span>
     <span class="card-recipe--content__prep-time"><%= recipe.prep_duration %> minutes</span>
     <span class="card-recipe--content__total-time"><%= recipe.total_duration %> minutes</span>
+    <p>Ingredients:</p>
+    <% recipe.ingredients.each do |ingredient| %>
+      <span class="card-recipe--content__total-time"><%= ingredient.quantity %><%= ingredient.name %> </span>
+    <% end %>
+    <span data-action="click->expander#expandcard">Masquer les ingrédients</span>
+    <div class="card-recipe--bottom"  >
+
+      <i class="fas fa-chevron-down" data-action="click->expander#expandcard"></i>
+    </div>
+
   </div>
 </div>
