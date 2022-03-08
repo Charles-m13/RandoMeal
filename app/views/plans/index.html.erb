@@ -12,12 +12,14 @@
       <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
     </div>
 
-  <!-- Menu de la semaine -->
-  <div class="plan-randomizer">
-    <div class="row">
-      <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
-      <% @recipes.each_with_index do |recipe, index| %>
-      <div class="col-12 col-md">
+    <!-- Menu de la semaine -->
+    <div class="plan-randomizer">
+      <div class="row">
+        <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+        <% @recipes.each_with_index do |recipe, index| %>
+        <div class="col-12 col-md" data-controller="counter">
+
+
         <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
         <!-- Modifier la quantité -->
         <form>
@@ -26,7 +28,15 @@
           <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div><br>
         </form>
           <!-- Card des jours de la semaine -->
+
           <div class="day">
+
+            <div class="actions">
+              <a class="btn round-bordered incrementer minus"  data-action="click->counter#decrease" data-offset="-1">-</a>
+              <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
+              <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
+            </div>
+
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
             <!-- Lock de la recette -->
@@ -46,8 +56,14 @@
         <div class="content-randomizer">
           <!-- Bouton Randomizer -->
           <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
-          <!-- Bouton Export PDF -->
-          <%= link_to 'Export', export_plans_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>   
+
+        </div>
+        <!-- Bouton Export -->
+        <div class="wicked_pdf">
+          <span class="btn btn--primary export">
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>
+
+
         </div>
       </div>
     <div>

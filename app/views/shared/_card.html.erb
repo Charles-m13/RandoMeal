@@ -11,7 +11,7 @@
 
     <p>Ingredients:</p>
     <% recipe.ingredients.each do |ingredient| %>
-      <span class="card-recipe--content__total-time"><%= ingredient.quantity %><%= ingredient.name %> </span>
+      <span class="card-recipe--content__total-time" data-counter-target="quantity" ><%= ingredient.quantity %></span> <span class="card-recipe--content__total-time" id="submit" ><%= ingredient.name %></span>
     <% end %>
     <span data-action="click->expander#expandcard">Masquer les ingrédients</span>
     <div class="card-recipe--bottom"  >
