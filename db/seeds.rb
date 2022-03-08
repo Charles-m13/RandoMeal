@@ -153,7 +153,7 @@ urls_thermomix = [
 
 puts "Creating tags"
 
-vege = Tag.create!(name: "végétarien")
+vege = Tag.create!(name: "vegetarien")
 vegan = Tag.create!(name: "vegan")
 sansgluten = Tag.create!(name: "sans gluten")
 thermomix = Tag.create!(name: "thermomix")

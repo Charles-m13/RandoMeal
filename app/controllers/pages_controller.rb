@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @recipe = Recipe.first
+    @recipes = Recipe.take(2)
   end
 end

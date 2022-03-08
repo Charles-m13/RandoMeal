@@ -16,43 +16,41 @@
       <div class="row align-items-center">
         <div class="col-12 col-lg-6">
           <div class="row">
-            <div class="col-12 col-md-6">
-              <div class="card-recipe">
-                <div class="card-recipe--top">
-                  <%= image_tag @recipe.image, class: "card-recipe--top__img" %>
+            <% @recipes.each do |recipe| %>
+                <div class="col-12 col-md-6">
+                  <div class="home-card-recipe">
+                    <div class="card-inner">
+                      <div class="card-front">
+                        <p>On mange quoi ?</p>
+                      </div>
+                      <div class="card-recipe card-back">
+                        <div class="card-recipe--top">
+                          <%= image_tag recipe.image, class: "card-recipe--top__img" %>
+                        </div>
+                        <div class="card-recipe--content">
+                          <h3><%= recipe.name %></h3>
+                          <p>Découvrez cette délicieuse recette de <%= recipe.name %> !</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-recipe--content">
-                  <h3><%= @recipe.name %></h3>
-                  <p>Découvrez cette délicieuse recette de <%= @recipe.name %> !</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="card-recipe">
-                <div class="card-recipe--top">
-                  <%= image_tag @recipe.image, class: "card-recipe--top__img" %>
-                </div>
-                <div class="card-recipe--content">
-                  <h3><%= @recipe.name %></h3>
-                  <p>Découvrez cette délicieuse recette de <%= @recipe.name %> !</p>
-                </div>
-              </div>
-            </div>
+              <% end %>
           </div>
         </div>
         <div class="col-12 col-lg-6">
-          <div class="home-feature-1--content">
-            <h2>Trouvez l'inspiration</h2>
-            <p>Qu'on aime la cuisine ou non, decider de ce que nous allons manger peut representer une veritable corvée... Alors laissez nous faire et <strong>régalez vous !!</strong>
-            Filtrer vos exigences parmi nos 190235 recettes, un click et le tour est joué !
-            Si le menu ne vous satisfait pas, un simple click et un nouveau menu se présente a vous.</p>
+            <div class="home-feature-1--content">
+              <h2>Trouvez l'inspiration</h2>
+              <p>Qu'on aime la cuisine ou non, decider de ce que nous allons manger peut representer une veritable corvée... Alors laissez nous faire et <strong>régalez vous !!</strong>
+              Filtrer vos exigences parmi nos 190235 recettes, un click et le tour est joué !
+              Si le menu ne vous satisfait pas, un simple click et un nouveau menu se présente a vous.</p>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
 
-    <div class="home-feature-2">
+  <div class="home-feature-2">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12 col-lg-6">
