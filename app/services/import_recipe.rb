@@ -50,8 +50,13 @@ class ImportRecipe
                       total_duration: @data[:total_time],
                       people: @json_data['recipeYield'],
                       all_ingredients: @json_data['recipeIngredient']
+
                     )
-    add_ingredients
+    @json_data['recipeIngredient'].each do |string|
+      quantity = string.match(/(^\d+)/)&.captures&.first
+      name = string.gsub(/(^\d+\s?)/, "")
+      add_ingredients(name, quantity, @recipe)
+    end
   end
 
   def add_tag
@@ -63,11 +68,11 @@ class ImportRecipe
     )
   end
 
-  def add_ingredients
+  def add_ingredients(name, quantity, recipe)
     @ingredient = Ingredient.create!(
-      name: @data[:name],
-      quantity:  @data[:quantity],
-      recipe: @recipe
+      name: name,
+      quantity:  quantity,
+      recipe: recipe
     )
   end
 end
