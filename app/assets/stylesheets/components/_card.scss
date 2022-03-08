@@ -7,6 +7,8 @@
   margin-bottom: 1.5rem;
   box-shadow: 1px 2px 9px rgba(black, 0.13);
 
+
+
   &--top {
     position: relative;
     overflow: hidden;
@@ -30,26 +32,20 @@
       right: 4px;
       color: $white;
       font-size: 1rem;
+      cursor: pointer;
 
-        .fa-unlock {
+        .fa {
           padding: 0.5rem;
           border-radius: 50%;
+        }
+
+        .fa-unlock {
           background-color: $fire;
         }
 
         .fa-lock {
-          display: none;
-        }
-
-        &:hover .fa-unlock {
-          display: none;
-        }
-
-        &:hover .fa-lock {
-          display: block;
-          padding: 0.5rem;
-          border-radius: 50%;
           background-color: $green-dark;
+          display: none;
         }
     }
   }
@@ -66,5 +62,16 @@
       display: block;
       font-size: 1rem;
     }
+  }
+}
+
+
+.locked .card-recipe {
+  .fa-lock {
+    display: block;
+  }
+
+  .fa-unlock {
+    display: none;
   }
 }

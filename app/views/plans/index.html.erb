@@ -1,4 +1,4 @@
-<div class="wrapper plan-wrap">
+<div class="wrapper plan-wrap" data-controller="week">
 
       <div class="header">
         <h1>Vos recettes de la semaine</h1>
@@ -18,7 +18,7 @@
         <% days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
         <div class="col-12 col-md">
-          <div class="day">
+          <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
           </div>
@@ -28,6 +28,6 @@
     </div>
 
     <div class="content-randomizer">
-      <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
+      <span class="btn btn--primary randomizer" data-action="click->week#randomize">RandoMiser</span>
     </div>
 </div>

@@ -1,10 +1,9 @@
 <div class="card-recipe">
   <div class="card-recipe--top">
     <%= image_tag recipe.image, class: "card-recipe--top__img" %>
-    <div class="icon-content">
+    <div class="icon-content" data-action="click->day#toggleLock">
       <i class="fa fa-unlock" aria-hidden="true"></i>
       <i class="fa fa-lock" aria-hidden="true"></i>
-
     </div>
   </div>
   <div class="card-recipe--content">
