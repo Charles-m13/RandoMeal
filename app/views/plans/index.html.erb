@@ -25,6 +25,7 @@
           <input type="number" id="number" value="4" />
           <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div><br>
         </form>
+          <!-- Card des jours de la semaine -->
           <div class="day">
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
@@ -46,7 +47,7 @@
           <!-- Bouton Randomizer -->
           <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
           <!-- Bouton Export PDF -->
-          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>   
+          <%= link_to 'Export', export_plans_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>   
         </div>
       </div>
     <div>
