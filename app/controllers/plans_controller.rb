@@ -3,6 +3,10 @@ class PlansController < ApplicationController
   def index
     # Affiche le menu de la semaine
     @recipes = Recipe.order('RANDOM()').limit(5)
+
+    cookies[:plan_recipes] = []
+    cookies[:already_proposed] = @recipes.map(&:id).map(&:to_s).join(',')
+
     # bouton export (gem WickedPdf)
     @recipe = Recipe.first
     respond_to do |format|
@@ -13,27 +17,49 @@ class PlansController < ApplicationController
     end
   end
 
-  def show
-    # # Affiche le menu de la semaine
-    # @recipes = Recipe.order('RANDOM()').limit(5)
+  def add
+    ap cookies[:plan_recipes]
+    @recipe = Recipe.find(params[:recipe_id])
+    plan_recipes = cookies[:plan_recipes].split(',')
+    plan_recipes << @recipe.id.to_s
+    ap Recipe.where(id: plan_recipes).pluck(:name)
+    cookies[:plan_recipes] = plan_recipes.join(',')
   end
 
-  def new
+  def remove
+    @recipe = Recipe.find(params[:recipe_id])
+    plan_recipes = cookies[:plan_recipes].split(',')
+    plan_recipes = plan_recipes - [@recipe.id.to_s]
+    ap Recipe.where(id: plan_recipes).pluck(:name)
+    cookies[:plan_recipes] = plan_recipes.join(',')
   end
 
-  def edit
+  def refresh
+    plan_recipes = cookies[:plan_recipes].split(',')
+    already_proposed = cookies[:already_proposed].split(',')
+    nb = 5 - plan_recipes.length
+
+    new_recipes = RandomRecipes.new(already_proposed, nb).call
+    already_proposed += new_recipes.map(&:id)
+    cookies[:already_proposed] = already_proposed.map(&:to_s).join(',')
+
+    recipe_cards = new_recipes.map do |recipe|
+      render_to_string(partial: "shared/card", locals: { recipe: recipe })
+    end
+
+    data = {recipe_cards: recipe_cards}
+    render json: data
   end
 
-  def create
-  end
-
+  # Checkboxes du Menu
   def update
   end
 
+  # Exporter le menu en PDF
   def export
-    # Affiche le menu de la semaine
+    # Affiche le menu de la semaine (aléatoire avec une limite de 5)
     @recipes = Recipe.order('RANDOM()').limit(5)
-    # bouton export (gem WickedPdf)
+    # Bouton export (gem WickedPdf)
     @recipe = Recipe.first
     respond_to do |format|
       format.html
@@ -49,15 +75,13 @@ class PlansController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
+  # Méthode privé des Checkboxes du Menu
   def plan_params
+    params.require(:tag).permit(:name)
     # params.require(:plan).permit(:name)
     # params.require(:recipe).permit(:name, :image, :url_marmiton, :price, :prep_duration, :total_duration, :people)
     # params.require(:ingredient).permit(:name, :quantity, :mesurement, :recipe_id)
-    # params.require(:tag).permit(:name, :marmiton_filter)
   end
 end

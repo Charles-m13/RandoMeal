@@ -11,7 +11,6 @@
   overflow: hidden;
 
   &--top {
-    position: relative;
     overflow: hidden;
 
     &:hover &__img {
@@ -25,35 +24,6 @@
       object-fit: cover;
       transition: transform .5s;
       transform: scale(1.2);
-    }
-
-    .icon-content {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      color: $white;
-      font-size: 1rem;
-
-        .fa-unlock {
-          padding: 0.5rem;
-          border-radius: 50%;
-          background-color: $fire;
-        }
-
-        .fa-lock {
-          display: none;
-        }
-
-        &:hover .fa-unlock {
-          display: none;
-        }
-
-        &:hover .fa-lock {
-          display: block;
-          padding: 0.5rem;
-          border-radius: 50%;
-          background-color: $green-dark;
-        }
     }
   }
 
@@ -98,5 +68,4 @@
   .card-recipe--bottom i {
     transform: rotate(180deg);
   }
-
 }

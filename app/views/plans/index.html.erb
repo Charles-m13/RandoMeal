@@ -1,16 +1,17 @@
-<div class="wrapper plan-wrap">
+<div class="wrapper plan-wrap" data-controller="week">
 
-    <div class="header">
-      <h1>Vos recettes de la semaine</h1>
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <h1>Vos recettes de la semaine</h1>
 
     <!-- Filtres des menus -->
-      <div class="tools">
-        <span>Végétarien</span>
-        <span>Vegan</span>
-        <span>Sans gluten</span>
-        <span>Thermomix</span>
-      </div>
+    <div class="tools">
+      <input type="checkbox" id="vege"><label for="vege">Végétarien</label>
+      <input type="checkbox" id="vegan"><label for="vegan">Vegan</label>
+      <input type="checkbox" id="sansgluten"><label for="sansgluten">Sans gluten</label>
+      <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
+    </div>
+
 
     <!-- Menu de la semaine -->
     <div class="plan-randomizer">
@@ -25,24 +26,32 @@
               <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
               <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
             </div>
+
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
+            <!-- Lock de la recette -->
+            <div class="day-action" data-action="click->day#toggleLock">
+              <span class="btn btn--small unlock">Je bloque</span>
+              <span class="btn btn--small lock">Bloqué</span>
+          </div>
           </div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
-
-    <!-- Bouton Randomizer -->
-    </div>
+  </div>
+    <!-- Les boutons -->
+    <div class="plan-buttons">
       <div class="row">
         <div class="content-randomizer">
+          <!-- Bouton Randomizer -->
           <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
         </div>
         <!-- Bouton Export -->
         <div class="wicked_pdf">
           <span class="btn btn--primary export">
           <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>
+
         </div>
       </div>
     <div>
