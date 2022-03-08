@@ -51,10 +51,15 @@ class PlansController < ApplicationController
     render json: data
   end
 
+  # Checkboxes du Menu
+  def update
+  end
+
+  # Exporter le menu en PDF
   def export
-    # Affiche le menu de la semaine
+    # Affiche le menu de la semaine (aléatoire avec une limite de 5)
     @recipes = Recipe.order('RANDOM()').limit(5)
-    # bouton export (gem WickedPdf)
+    # Bouton export (gem WickedPdf)
     @recipe = Recipe.first
     respond_to do |format|
       format.html
@@ -68,5 +73,15 @@ class PlansController < ApplicationController
         margin: {top: 12, bottom: 12, left: 15, right: 12}
       end
     end
+  end
+
+  private
+
+  # Méthode privé des Checkboxes du Menu
+  def plan_params
+    params.require(:tag).permit(:name)
+    # params.require(:plan).permit(:name)
+    # params.require(:recipe).permit(:name, :image, :url_marmiton, :price, :prep_duration, :total_duration, :people)
+    # params.require(:ingredient).permit(:name, :quantity, :mesurement, :recipe_id)
   end
 end

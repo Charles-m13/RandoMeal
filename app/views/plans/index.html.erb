@@ -1,56 +1,52 @@
 <div class="wrapper plan-wrap" data-controller="week">
 
-    <div class="header">
-      <h1>Vos recettes de la semaine</h1>
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <h1>Vos recettes de la semaine</h1>
 
     <!-- Filtres des menus -->
-      <div class="tools">
-        <span>Végétarien</span>
-        <span>Vegan</span>
-        <span>Sans gluten</span>
-        <span>Thermomix</span>
-      </div>
+    <div class="tools">
+      <input type="checkbox" id="vege"><label for="vege">Végétarien</label>
+      <input type="checkbox" id="vegan"><label for="vegan">Vegan</label>
+      <input type="checkbox" id="sansgluten"><label for="sansgluten">Sans gluten</label>
+      <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
+    </div>
 
-    <!-- Menu de la semaine -->
-    <div class="plan-randomizer">
-      <div class="row">
-        <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
-        <% @recipes.each_with_index do |recipe, index| %>
-        <div class="col-12 col-md">
-
-          <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
-
-
-          <form>
-  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ? </div>
-  <br>
-  <input type="number" id="number" value="4" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div>
-  <br>
-</form>
-
+  <!-- Menu de la semaine -->
+  <div class="plan-randomizer">
+    <div class="row">
+      <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+      <% @recipes.each_with_index do |recipe, index| %>
+      <div class="col-12 col-md">
+        <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
+        <!-- Modifier la quantité -->
+        <form>
+          <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ?</div><br>
+          <input type="number" id="number" value="4" />
+          <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div><br>
+        </form>
+          <div class="day">
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
+            <!-- Lock de la recette -->
             <div class="day-action" data-action="click->day#toggleLock">
               <span class="btn btn--small unlock">Je bloque</span>
               <span class="btn btn--small lock">Bloqué</span>
           </div>
           </div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
-
-    </div>
+  </div>
+    <!-- Les boutons -->
+    <div class="plan-buttons">
       <div class="row">
         <div class="content-randomizer">
-         <span class="btn btn--primary randomizer" data-action="click->week#randomize">RandoMiser</span>
-        </div>
-        <!-- Bouton Export -->
-        <div class="wicked_pdf">
-          <span class="btn btn--primary export">
-          <%= link_to 'Export', export_plans_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>
+          <!-- Bouton Randomizer -->
+          <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
+          <!-- Bouton Export PDF -->
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>   
         </div>
       </div>
     <div>
