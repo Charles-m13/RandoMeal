@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :remove
       post :add
       get :refresh
+      get :export
     end
   end
 end
