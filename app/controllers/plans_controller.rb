@@ -1,20 +1,10 @@
 class PlansController < ApplicationController
 
   def index
-    # Affiche le menu de la semaine
+    # Récolte 5 recettes de manière aléatoire
     @recipes = Recipe.order('RANDOM()').limit(5)
-
     cookies[:plan_recipes] = []
     cookies[:already_proposed] = @recipes.map(&:id).map(&:to_s).join(',')
-
-    # bouton export (gem WickedPdf)
-    @recipe = Recipe.first
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "file_name", template: "plans/index.html.erb"             # Excluding ".pdf" extension.
-      end
-    end
   end
 
   def add
@@ -55,22 +45,22 @@ class PlansController < ApplicationController
   def update
   end
 
-  # Exporter le menu en PDF
+  # Exporter le menu en PDF (gem WickedPdf)
   def export
-    # Affiche le menu de la semaine (aléatoire avec une limite de 5)
+    # Récolte 5 recettes de manière aléatoire
     @recipes = Recipe.order('RANDOM()').limit(5)
-    # Bouton export (gem WickedPdf)
+    # Bouton export
     @recipe = Recipe.first
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "file_name", 
         template: "plans/pdf.html.erb",
-        title: 'RandoMeal, le menu de votre semaine', 
-        page_size: "A4", 
+        title: 'RandoMeal, le menu de votre semaine',      # Titre de la page PDF
+        page_size: "A4",                                   # Format de la page de résultat
         encoding: 'TEXT', 
-        font_name: 'Arial',
-        margin: {top: 12, bottom: 12, left: 15, right: 12}
+        font_name: 'Arial',                                # Police d'écritures du texte
+        margin: {top: 12, bottom: 12, left: 15, right: 12} # Cadrage des éléments
       end
     end
   end
