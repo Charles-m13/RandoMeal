@@ -24,6 +24,8 @@ class PlansController < ApplicationController
     cookies[:plan_recipes] = plan_recipes.join(',')
   end
 
+  
+
   def refresh
     plan_recipes = cookies[:plan_recipes].split(',')
     already_proposed = cookies[:already_proposed].split(',')
