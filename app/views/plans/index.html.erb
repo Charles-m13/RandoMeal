@@ -21,6 +21,10 @@
           <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
+            <div class="day-action" data-action="click->day#toggleLock">
+              <span class="btn btn--small unlock">Je bloque</span>
+              <span class="btn btn--small lock">Bloqué</span>
+          </div>
           </div>
         </div>
         <% end %>

@@ -10,7 +10,6 @@
 
 
   &--top {
-    position: relative;
     overflow: hidden;
 
     &:hover &__img {
@@ -24,29 +23,6 @@
       object-fit: cover;
       transition: transform .5s;
       transform: scale(1.2);
-    }
-
-    .icon-content {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      color: $white;
-      font-size: 1rem;
-      cursor: pointer;
-
-        .fa {
-          padding: 0.5rem;
-          border-radius: 50%;
-        }
-
-        .fa-unlock {
-          background-color: $fire;
-        }
-
-        .fa-lock {
-          background-color: $green-dark;
-          display: none;
-        }
     }
   }
 
@@ -63,15 +39,5 @@
       font-size: 1rem;
     }
   }
-}
 
-
-.locked .card-recipe {
-  .fa-lock {
-    display: block;
-  }
-
-  .fa-unlock {
-    display: none;
-  }
 }
