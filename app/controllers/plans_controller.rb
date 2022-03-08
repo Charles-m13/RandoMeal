@@ -65,12 +65,12 @@ class PlansController < ApplicationController
       format.html
       format.pdf do
         render pdf: "file_name", 
-        template: "plans/pdf.html.erb",
-        title: 'RandoMeal, le menu de votre semaine', 
-        page_size: "A4", 
+        template: "plans/pdf.html.erb",                     # Fichier de template
+        title: 'RandoMeal, le menu de votre semaine',       # Titre de la page 
+        page_size: "A4",                                    # Format de la page
         encoding: 'TEXT', 
-        font_name: 'Arial',
-        margin: {top: 12, bottom: 12, left: 15, right: 12}
+        font_name: 'Arial',                                 # Police d'écritures
+        margin: {top: 12, bottom: 12, left: 15, right: 12}  # Mise en page
       end
     end
   end

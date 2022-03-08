@@ -17,33 +17,27 @@
       <div class="row">
         <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
-        <div class="col-12 col-md" data-controller="counter">
-
-
-        <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
-
-
-          <!-- Card des jours de la semaine -->
-
-          <div class="day">
-
-            <div class="actions">
-              <a class="btn round-bordered incrementer minus"  data-action="click->counter#decrease" data-offset="-1">-</a>
-              <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
-              <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
-            </div>
-
-            <h3 class="day-name"><%= days[index] %></h3>
-            <%= render 'shared/card', recipe: recipe %>
-            <!-- Lock de la recette -->
-            <div class="day-action" data-action="click->day#toggleLock">
-              <span class="btn btn--small unlock">Je bloque</span>
-              <span class="btn btn--small lock">Bloqué</span>
+          <div class="col-12 col-md" data-controller="counter">
+            <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
+              <!-- Card des jours de la semaine -->
+              <div class="day">
+                <div class="actions">
+                  <a class="btn round-bordered incrementer minus"  data-action="click->counter#decrease" data-offset="-1">-</a>
+                  <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
+                  <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
+                </div>
+                <h3 class="day-name"><%= days[index] %></h3>
+                <%= render 'shared/card', recipe: recipe %>
+                <!-- Lock de la recette -->
+                <div class="day-action" data-action="click->day#toggleLock">
+                  <span class="btn btn--small unlock">Je bloque</span>
+                  <span class="btn btn--small lock">Bloqué</span>
+                </div>
+              </div>
+            </div>            
           </div>
-          </div>
-        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
     <!-- Les boutons -->
@@ -52,15 +46,8 @@
         <div class="content-randomizer">
           <!-- Bouton Randomizer -->
           <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
-
-        </div>
-        <!-- Bouton Export -->
-        <div class="wicked_pdf">
-          <span class="btn btn--primary export">
-<%= link_to 'Export', export_plans_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>
-
-
-
+          <!-- Bouton Export PDF -->
+          <%= link_to 'Export', export_plans_path(@recipes, :format => :pdf), class: "btn btn--primary export" %>
         </div>
       </div>
     <div>
