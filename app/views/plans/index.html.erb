@@ -1,7 +1,9 @@
-<div class="wrapper plan-wrap">
+<div class="wrapper plan-wrap" data-controller="week">
+
   <!-- Header -->
   <div class="header">
     <h1>Vos recettes de la semaine</h1>
+
     <!-- Filtres des menus -->
     <div class="tools">
       <input type="checkbox" id="vege"><label for="vege">Végétarien</label>
@@ -9,26 +11,35 @@
       <input type="checkbox" id="sansgluten"><label for="sansgluten">Sans gluten</label>
       <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
     </div>
+
   <!-- Menu de la semaine -->
   <div class="plan-randomizer">
     <div class="row">
       <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
       <% @recipes.each_with_index do |recipe, index| %>
       <div class="col-12 col-md">
-        <div class="day">
+        <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
         <!-- Modifier la quantité -->
         <form>
           <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ?</div><br>
           <input type="number" id="number" value="4" />
           <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div><br>
         </form>
-          <h3 class="day-name"><%= days[index] %></h3>
-          <%= render 'shared/card', recipe: recipe %>
+          <div class="day">
+            <h3 class="day-name"><%= days[index] %></h3>
+            <%= render 'shared/card', recipe: recipe %>
+            <!-- Lock de la recette -->
+            <div class="day-action" data-action="click->day#toggleLock">
+              <span class="btn btn--small unlock">Je bloque</span>
+              <span class="btn btn--small lock">Bloqué</span>
+          </div>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+    <!-- Les boutons -->
     <div class="plan-buttons">
       <div class="row">
         <div class="content-randomizer">

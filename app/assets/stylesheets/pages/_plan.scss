@@ -39,9 +39,9 @@ input:checked + label {
   span {
     padding: 0.5rem 1.5rem;
     background-color: $white;
-    border: 1px solid $fire;
+    border: 1px solid $tangerine;
     border-radius: $border-radius;
-    color: $fire;
+    color: $tangerine;
 
     &:hover {
       box-shadow: 1px 2px 9px rgba(black, 0.13);
@@ -63,6 +63,37 @@ input:checked + label {
     .day-name {
       text-align: center;
       color: $fire;
+    }
+
+    &-action {
+      text-align: center;
+
+      .unlock {
+        background-color: $fire;
+        color: $white;
+      }
+
+      .lock {
+        display: none;
+      }
+    }
+
+    &.locked {
+      border: 1px dashed $green-dark;
+
+      .day-name {
+        color: $green-dark;
+      }
+
+      .unlock {
+        display: none;
+      }
+
+      .lock {
+        display: inline-block;
+        background-color: $green-dark;
+        color: $white;
+      }
     }
   }
 }
