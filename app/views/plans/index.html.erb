@@ -17,16 +17,14 @@
       <div class="row">
         <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
-        <div class="col-12 col-md">
+        <div class="col-12 col-md" data-controller="counter">
           <div class="day">
 
-          <form>
-  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ? </div>
-  <br>
-  <input type="number" id="number" value="4" />
-  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div>
-  <br>
-</form>
+            <div class="actions">
+              <a class="btn round-bordered incrementer minus"  data-action="click->counter#decrease" data-offset="-1">-</a>
+              <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
+              <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
+            </div>
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
           </div>
@@ -44,7 +42,7 @@
         <!-- Bouton Export -->
         <div class="wicked_pdf">
           <span class="btn btn--primary export">
-          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>          
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>
         </div>
       </div>
     <div>
