@@ -7,6 +7,27 @@
   }
 }
 
+input {
+  // display: none;
+}
+
+label {
+  display: inline-block;
+  background: white;
+  border: 2px solid orange;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: orange;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+input:checked + label {
+  background: orange;
+  color: white;
+}
+
 .tools {
   width: 70%;
   margin: 0 auto;
@@ -37,6 +58,7 @@
   width: 100%;
   padding: 0.5rem;
   margin-top: 2rem;
+
   .day {
     padding: 2rem;
     border: 1px dashed $fire;

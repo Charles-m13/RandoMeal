@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     collection do
       post :remove
       post :add
-      get :refresh
-      get :export
+      get :refresh # Routes pour le bouton Randomiser (ne pas supprimer)
+      get :export # Routes pour bouton Export PDF (ne pas supprimer)
     end
   end
 end
