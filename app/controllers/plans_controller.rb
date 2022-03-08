@@ -14,8 +14,6 @@ class PlansController < ApplicationController
   end
 
   def show
-    # # Affiche le menu de la semaine
-    # @recipes = Recipe.order('RANDOM()').limit(5)
   end
 
   def new
@@ -27,13 +25,20 @@ class PlansController < ApplicationController
   def create
   end
 
+  # Checkboxes du Menu
   def update
+    if tag.update(plan_params)
+      redirect_to plans_path
+    else
+      render :edit
+    end
   end
 
+  # Exporter le menu en PDF
   def export
-    # Affiche le menu de la semaine
+    # Affiche le menu de la semaine (aléatoire avec une limite de 5)
     @recipes = Recipe.order('RANDOM()').limit(5)
-    # bouton export (gem WickedPdf)
+    # Bouton export (gem WickedPdf)
     @recipe = Recipe.first
     respond_to do |format|
       format.html
@@ -54,10 +59,11 @@ class PlansController < ApplicationController
 
   private
 
+  # Méthode privé des Checkboxes du Menu
   def plan_params
+    params.require(:tag).permit(:name)
     # params.require(:plan).permit(:name)
     # params.require(:recipe).permit(:name, :image, :url_marmiton, :price, :prep_duration, :total_duration, :people)
     # params.require(:ingredient).permit(:name, :quantity, :mesurement, :recipe_id)
-    # params.require(:tag).permit(:name, :marmiton_filter)
   end
 end

@@ -2,21 +2,21 @@
   <!-- Header -->
   <div class="header">
     <h1>Vos recettes de la semaine</h1>
-  </div>
-  <!-- Filtres des menus -->
+    <!-- Filtres des menus -->
     <div class="tools">
-      <span>Végétarien</span>
-      <span>Vegan</span>
-      <span>Sans gluten</span>
-      <span>Thermomix</span>
+      <input type="checkbox" id="vege"><label for="vege">Végétarien</label>
+      <input type="checkbox" id="vegan"><label for="vegan">Vegan</label>
+      <input type="checkbox" id="sansgluten"><label for="sansgluten">Sans gluten</label>
+      <input type="checkbox" id="thermomix"><label for="thermomix">Thermomix</label>
     </div>
-    <!-- Menu de la semaine -->
+  <!-- Menu de la semaine -->
   <div class="plan-randomizer">
     <div class="row">
       <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
       <% @recipes.each_with_index do |recipe, index| %>
       <div class="col-12 col-md">
         <div class="day">
+        <!-- Modifier la quantité -->
         <form>
           <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ?</div><br>
           <input type="number" id="number" value="4" />
@@ -31,14 +31,11 @@
   </div>
     <div class="plan-buttons">
       <div class="row">
-        <!-- Bouton Randomizer -->
         <div class="content-randomizer">
+          <!-- Bouton Randomizer -->
           <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
-        </div>
-        <!-- Bouton Export PDF -->
-        <div class="wicked_pdf">
-          <span class="btn btn--primary export">
-          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>          
+          <!-- Bouton Export PDF -->
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>   
         </div>
       </div>
     <div>
