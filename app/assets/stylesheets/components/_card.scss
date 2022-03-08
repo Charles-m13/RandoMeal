@@ -1,11 +1,14 @@
 .card-recipe {
   width: 100%;
-  min-height: 390px;
+  position: relative;
+  transition: all 1s ease;
+  // min-height: 390px;
   background-color: $white;
   border-radius: $border-radius;
-  overflow: hidden;
   margin-bottom: 1.5rem;
   box-shadow: 1px 2px 9px rgba(black, 0.13);
+  height: 390px;
+  overflow: hidden;
 
 
 
@@ -29,6 +32,7 @@
   &--content {
     padding: 1rem;
 
+
     h3 {
       color: $green-dark;
       font-size: 1.4rem;
@@ -40,4 +44,30 @@
     }
   }
 
+  &--bottom {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    i {
+      display: block;
+      padding: 0.5rem;
+      border-radius: 50%;
+      border: 1px solid #AAAAAA;
+      transition: all 500ms ease;
+      text-align: center;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+  }
+
+
+}
+
+.expand.card-recipe {
+  height: 1000px;
+
+  .card-recipe--bottom i {
+    transform: rotate(180deg);
+  }
 }

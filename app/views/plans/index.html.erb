@@ -1,9 +1,10 @@
 <div class="wrapper plan-wrap" data-controller="week">
 
-      <div class="header">
-        <h1>Vos recettes de la semaine</h1>
-      </div>
+    <div class="header">
+      <h1>Vos recettes de la semaine</h1>
+    </div>
 
+    <!-- Filtres des menus -->
       <div class="tools">
         <span>Végétarien</span>
         <span>Vegan</span>
@@ -11,14 +12,24 @@
         <span>Thermomix</span>
       </div>
 
-
-
+    <!-- Menu de la semaine -->
     <div class="plan-randomizer">
       <div class="row">
-        <% days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'] %>
+        <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
         <div class="col-12 col-md">
+
           <div class="day" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
+
+
+          <form>
+  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">How many people ? </div>
+  <br>
+  <input type="number" id="number" value="4" />
+  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div>
+  <br>
+</form>
+
             <h3 class="day-name"><%= days[index] %></h3>
             <%= render 'shared/card', recipe: recipe %>
             <div class="day-action" data-action="click->day#toggleLock">
@@ -31,7 +42,16 @@
       </div>
     </div>
 
-    <div class="content-randomizer">
-      <span class="btn btn--primary randomizer" data-action="click->week#randomize">RandoMiser</span>
     </div>
+      <div class="row">
+        <div class="content-randomizer">
+         <span class="btn btn--primary randomizer" data-action="click->week#randomize">RandoMiser</span>
+        </div>
+        <!-- Bouton Export -->
+        <div class="wicked_pdf">
+          <span class="btn btn--primary export">
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>          
+        </div>
+      </div>
+    <div>
 </div>

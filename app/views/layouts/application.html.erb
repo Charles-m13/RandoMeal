@@ -17,6 +17,9 @@
     <%= csp_meta_tag %>
     <!-- UTF-8 because we are French ! -->
     <meta charset="utf-8">
+    <!-- wicked_pdf helpers -->
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,7 +28,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
   </body>
   <%= render 'shared/footer' %>
 </html>
