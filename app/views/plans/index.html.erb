@@ -1,9 +1,10 @@
 <div class="wrapper plan-wrap">
 
-      <div class="header">
-        <h1>Vos recettes de la semaine</h1>
-      </div>
+    <div class="header">
+      <h1>Vos recettes de la semaine</h1>
+    </div>
 
+    <!-- Filtres des menus -->
       <div class="tools">
         <span>Végétarien</span>
         <span>Vegan</span>
@@ -11,11 +12,10 @@
         <span>Thermomix</span>
       </div>
 
-
-
+    <!-- Menu de la semaine -->
     <div class="plan-randomizer">
       <div class="row">
-        <% days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi'] %>
+        <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
         <div class="col-12 col-md">
           <div class="day">
@@ -35,13 +35,17 @@
       </div>
     </div>
 
-    <div class="content-randomizer">
-      <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
+    <!-- Bouton Randomizer -->
     </div>
-    </p>
-    <div class="content-wicked_pdf">
-      <span>Exporter le menu de la semaine : </span>
-      <span class="btn btn--primary export">
-      <%= link_to 'Export', plans_path(@recipes, :format => :pdf) %></span>
-    </div>
+      <div class="row">
+        <div class="content-randomizer">
+          <%= link_to "RandoMiser", plans_path, class: "btn btn--primary randomizer"%>
+        </div>
+        <!-- Bouton Export -->
+        <div class="wicked_pdf">
+          <span class="btn btn--primary export">
+          <%= link_to 'Export', export_path(@recipes, :format => :pdf), class: "btn btn--primary export" %></span>          
+        </div>
+      </div>
+    <div>
 </div>
