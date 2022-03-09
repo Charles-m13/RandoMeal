@@ -24,9 +24,9 @@
               <!-- Card des jours de la semaine -->
               <div class="day">
                 <div class="actions">
-                  <a class="btn round-bordered incrementer minus"  data-action="click->counter#decrease" data-offset="-1">-</a>
+                  <a class="btn round-bordered incrementer minus" data-day-target="decrease" data-action="click->counter#decrease" data-offset="-1">-</a>
                   <span id="counter" data-day-target="nbPerson" data-counter-target="input" data-count="1"><%= recipe.people %></span>
-                  <a href="#" class="btn round-bordered incrementer"  data-action="click->counter#increase"  data-offset="1">+</a>
+                  <a  class="btn round-bordered incrementer" data-day-target="increase" data-action="click->counter#increase" data-offset="1">+</a>
                 </div>
                 <h3 class="day-name"><%= days[index] %></h3>
                 <%= render 'shared/card', recipe: recipe %>

@@ -13,9 +13,7 @@ export default class extends Controller {
     this.quantityTargets.forEach(quantity => {
       quantity.innerHTML = this.inputTarget.innerHTML * (quantity.innerHTML / (this.inputTarget.innerHTML - 1))
     });
-
-
-
+    
   }
   decrease(event) {
     event.preventDefault()
