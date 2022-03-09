@@ -35,19 +35,14 @@ class PlansController < ApplicationController
   def remove
     # retrieving recipe from Ajax ex: recipe_id = 119
     @recipe = Recipe.find(params[:recipe_id])
-
     # converting cookies nb_persons into array ex: "4,4,5" => ["4", "4", "5"]
     nb_persons = cookies[:nb_persons].split(',')
-
     # converting cookies plan_recipes into array ex: "120,119,156" => ["120", "119", "156"]
     plan_recipes = cookies[:plan_recipes].split(',')
-
     # retriving the recipe index to remove in ["120", "119", "156"].index("119") => 1
     recipe_index_to_remove = plan_recipes.index(@recipe.id.to_s)
-
     # removing recipe in array plan_recipes => ["120", "156"]
     plan_recipes = plan_recipes - [@recipe.id.to_s]
-
     # removing quantity at the right index => ["4", "5"]
     nb_persons.delete_at(recipe_index_to_remove)
 
