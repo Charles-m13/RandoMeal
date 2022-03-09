@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <!-- wicked_pdf helpers -->
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
-    <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
   <body>
     <!-- Menu de la semaine -->
@@ -25,7 +24,7 @@
             <div class="menu-export">
               <p>-------------------------  ʕ•ᴥ•ʔ  ------------------------------</p>
               <h3><%= days[index] %> : <%= recipe.name %></h3>
-              <span class="card-recipe--content__prep-time"><p>Temps de prépration : <%= recipe.prep_duration %> minutes</span></p>
+              <span class="card-recipe--content__prep-time"><p>• Temps de prépration : <%= recipe.prep_duration %> minutes</span></p>
               <span class="card-recipe--content__total-time"><p>• Temps total : <%= recipe.total_duration %> minutes</span></p>
               <span class="card-recipe--content__people"><p>• Pour <%= @nb_persons[index] %> personnes</span></p>
               <span class="card-recipe--content__all-ingredients"><p>• Ingrédients : <%= ingredient_displayer(recipe, @nb_persons[index] ) %></span></p>
@@ -42,7 +41,7 @@
               <% @recipes.each_with_index do |recipe, index| %>
                 <% recipe.ingredients.each do |ingredient| %>
                   <% quantity = ingredient&.quantity.nil? ? 0 : ingredient.quantity %>
-                  <p>• <%= (quantity.fdiv(recipe.people)) * @nb_persons[index] %> <%= ingredient.name %> </p>
+                  <p>• <%= (quantity.fdiv(recipe.people)).round(2) * @nb_persons[index] %> <%= ingredient.name %> </p>
                 <% end %>
               <% end %>
             </div>
