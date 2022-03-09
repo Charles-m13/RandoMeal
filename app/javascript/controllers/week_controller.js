@@ -8,9 +8,10 @@ export default class extends Controller {
     this.locked = false
   }
 
-  toggleLock() {
+  toggleLock(event) {
     this.locked = !this.locked
-    this.filterTarget.classList.toggle('locked', this.locked)
+    event.currentTarget.classList.toggle('locked', this.locked)
+    this.randomize()
   }
 
   unlockDays() {
@@ -26,7 +27,7 @@ export default class extends Controller {
   }
 
   randomize() {
-    console.log(this.filter)
+    console.log(`je random avec le filter ${this.filter}`)
     fetch(`/plans/refresh?filter=${this.filter}`, {
       method: 'GET',
       headers: {
@@ -39,6 +40,7 @@ export default class extends Controller {
 
   addFilter(event) {
     this.filter = event.target.dataset.filter
-    this.toggleLock()
+    console.log(this.filter)
+    this.toggleLock(event)
   }
 }
