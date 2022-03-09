@@ -39,9 +39,10 @@
         <h2>Liste des courses</h2>
           <div class="row">
             <div class="col-12 col-md">
-              <% @recipes.each do |recipe| %>
-                <% recipe.all_ingredients.each_with_index do |ingredient, index| %>
-                  <p>• <%= ingredient %></p>
+              <% @recipes.each_with_index do |recipe, index| %>
+                <% recipe.ingredients.each do |ingredient| %>
+                  <% quantity = ingredient&.quantity.nil? ? 0 : ingredient.quantity %>
+                  <p>• <%= (quantity.fdiv(recipe.people)) * @nb_persons[index] %> <%= ingredient.name %> </p>
                 <% end %>
               <% end %>
             </div>
