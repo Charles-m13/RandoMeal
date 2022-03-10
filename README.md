@@ -4,7 +4,7 @@
 <!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
 <!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
 
-![randomeal_socialsizes](https://user-images.githubusercontent.com/16926444/157692758-2e77cf41-0376-4c0b-839f-419b71db0a74.png)
+![logo_randomeal](https://user-images.githubusercontent.com/16926444/157692897-0a415f48-dda1-4e64-9fa1-eba78af4fa5f.png)
 
 **RandoMeal**
  - Site internet : [http://www.randomeal.xyz](http://www.randomeal.xyz/)
