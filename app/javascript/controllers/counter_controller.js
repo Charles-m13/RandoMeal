@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "quantity","input" ]
+  static targets = [ "quantity","input", "buttons" ]
   static values = {
     people: Number
   }
@@ -14,11 +14,13 @@ export default class extends Controller {
   lock() {
     console.log("je suis dans counter controller lock")
     this.locked = true
+    this.buttonsTarget.classList.add("block")
   }
 
   unlock() {
     console.log("je suis dans counter controller unlock")
     this.locked = false
+    this.buttonsTarget.classList.remove("block")
   }
 
   increase(event) {

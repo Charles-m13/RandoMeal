@@ -12,8 +12,6 @@ export default class extends Controller {
   }
 
   peopleUpdated(event) {
-    console.log("je suis dans peopleUpdated de day contorller")
-    console.log(event);
     this.peopleValue = event.detail
   }
 

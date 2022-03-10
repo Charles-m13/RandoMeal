@@ -21,8 +21,8 @@
     </div>
 
     <div class="card-recipe--content__actions">
-      <div class="incrementer-button">
-        <a class="btn incrementer"  data-action="click->counter#decrease" data-offset="-1">-</a>
+      <div class="incrementer-button" data-counter-target="buttons">
+        <a class="btn incrementer" data-action="click->counter#decrease" data-offset="-1">-</a>
         <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
         <a class="btn incrementer" data-action="click->counter#increase"  data-offset="1">+</a>
       </div>
