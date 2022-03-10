@@ -1,5 +1,5 @@
 .header {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   text-align: center;
 
   h1 {
@@ -7,63 +7,61 @@
   }
 }
 
-input {
-  // display: none;
-}
-
-label {
-  display: inline-block;
-  background: white;
-  border: 2px solid orange;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  color: orange;
-  font-weight: bold;
-  font-size: 2em;
-}
-
-input:checked + label {
-  background: orange;
-  color: white;
-}
-
-.tools {
-  width: 70%;
-  margin: 0 auto;
+.menu {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  justify-content: flex-start;
 
-  .filter {
-    padding: 0.5rem 1.5rem;
-    background-color: $white;
-    border: 1px solid $tangerine;
-    border-radius: $border-radius;
-    color: $tangerine;
+  .preferences {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 
-    &:hover {
-      box-shadow: 1px 2px 9px rgba(black, 0.13);
+    &--text {
+      font-size: 1rem;
+      color: $gray;
+      margin-bottom: 0.5rem;
     }
-  }
-  .locked {
-    background-color: $tangerine;
-    color: $white;
+
+    .filter {
+      display: inline-block;
+      padding: 0.5em 0.8em;
+      background-color: $white;
+      border: 1px solid $tangerine;
+      border-radius: $border-radius;
+      color: $tangerine;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      margin-right: 0.4rem ;
+
+      &:hover {
+        box-shadow: 1px 2px 9px rgba(black, 0.13);
+      }
+    }
+
+    .active {
+      background-color: $tangerine;
+      color: $white;
+    }
+
   }
 
 }
+
 
 .plan-randomizer {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   .day {
-    padding: 2rem;
-    border: 1px dashed $fire;
+    padding: 1rem;
+    border: 2px dashed $fire;
     border-radius: $border-radius;
-    margin-bottom: 1rem;
 
     .day-name {
       text-align: center;
@@ -72,6 +70,10 @@ input:checked + label {
 
     &-action {
       text-align: center;
+
+      i {
+        margin-right: 8px;
+      }
 
       .unlock {
         background-color: $fire;
@@ -84,7 +86,7 @@ input:checked + label {
     }
 
     &.locked {
-      border: 1px dashed $green-dark;
+      border: 2px solid $green-dark;
 
       .day-name {
         color: $green-dark;
@@ -104,13 +106,25 @@ input:checked + label {
 }
 
 .content-randomizer {
-  margin: 3rem 0;
+  margin: 2rem 0;
   text-align: center;
-  font-family: $headers-font;
-  font-weight: 400;
 
-  .randomizer {
-    margin-left: 2rem;
+  .randomizer--text {
+    font-family: $headers-font;
+    color: $green-dark;
+    font-size: 1.4rem;
+  }
+
+  .block--text {
+    color: $gray;
+    font-size: 1rem;
+  }
+
+  .btnrand {
     box-shadow: 1px 2px 9px rgba(black, 0.13);
+
+    i {
+      margin-right: 8px;
+    }
   }
 }

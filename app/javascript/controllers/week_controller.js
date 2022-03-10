@@ -2,16 +2,53 @@ import { preventOverflow } from "@popperjs/core"
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['day', 'filter']
+  static targets = ['day', 'filter', 'export1', 'export2', 'countrecipe']
 
   connect() {
-    this.locked = false
+    this.export = false
   }
 
-  toggleLock(event) {
-    this.locked = !this.locked
-    event.currentTarget.classList.toggle('locked', this.locked)
+  toggleActive(event) {
+    this.filterTargets.forEach((filterElement) => {
+      if (filterElement == event.currentTarget)
+        filterElement.classList.toggle('active')
+      else
+        filterElement.classList.remove('active')
+    })
     this.randomize()
+  }
+
+  activeFilter() {
+    const filterElement = this.filterTargets.find(fe => fe.classList.contains('active'))
+    if (filterElement)
+      return filterElement.dataset.filter
+  }
+
+  toggleExport() {
+    let toggleButton = true
+    this.dayTargets.forEach((day) => {
+      if(day.classList.contains('unlocked')) {
+        toggleButton = false
+      }
+    })
+    if (toggleButton) {
+      this.export1Target.classList.add('d-none')
+      this.export2Target.classList.remove('d-none')
+    } else {
+      this.export2Target.classList.add('d-none')
+      this.export1Target.classList.remove('d-none')
+    }
+  }
+
+  remainingRecipesToUnlock(event) {
+    if (event.currentTarget.parentNode.classList.contains('unlocked')) {
+      console.log("je décrémente")
+      this.countrecipeTarget.innerHTML ++
+    }
+    if (!event.currentTarget.parentNode.classList.contains('unlocked')) {
+      console.log("j'incrémente")
+      this.countrecipeTarget.innerHTML --
+    }
   }
 
   unlockDays() {
@@ -26,9 +63,15 @@ export default class extends Controller {
     })
   }
 
+  keyUp(e) {
+    if (e.code == "Space")
+      this.randomize()
+  }
+
+
   randomize() {
-    console.log(`je random avec le filter ${this.filter}`)
-    fetch(`/plans/refresh?filter=${this.filter}`, {
+    const filter = this.activeFilter() ? `filter=${this.activeFilter()}` : ''
+    fetch(`/plans/refresh?${filter}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -36,11 +79,5 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => this.replaceCardHtml(data.recipe_cards))
-  }
-
-  addFilter(event) {
-    this.filter = event.target.dataset.filter
-    console.log(this.filter)
-    this.toggleLock(event)
   }
 }

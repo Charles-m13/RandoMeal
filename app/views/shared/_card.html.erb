@@ -2,23 +2,37 @@
   <div class="card-recipe--top">
     <%= image_tag recipe.image, class: "card-recipe--top__img" %>
   </div>
+
   <div class="card-recipe--content">
-    <h3><%= recipe.name %></h3>
 
-    <span class="card-recipe--content__price"><%= recipe.price %> €</span>
-    <span class="card-recipe--content__prep-time">Temps de prépration : <%= recipe.prep_duration %> minutes</span>
-    <span class="card-recipe--content__total-time">Temps total : <%= recipe.total_duration %> minutes</span>
-
-    <p>Ingredients:</p>
-    <% recipe.ingredients.each do |ingredient| %>
-      <span class="card-recipe--content__total-time" data-counter-target="quantity" ><%= ingredient.quantity %></span> <span class="card-recipe--content__total-time" id="submit" ><%= ingredient.name %></span>
-    <% end %>
-    <span data-action="click->expander#expandcard">Masquer les ingrédients</span>
-    <div class="card-recipe--bottom"  >
-
-      <i class="fas fa-chevron-down" data-action="click->expander#expandcard"></i>
+    <div class="card-recipe--content__info">
+      <h3><%= recipe.name %></h3>
+      <span class="card-recipe--content__prep-time"><i class="fas fa-hourglass-end"></i> Prépration : <%= recipe.prep_duration %> minutes</span>
+      <span class="card-recipe--content__total-time"><i class="fas fa-utensils"></i> Total : <%= recipe.total_duration %> minutes</span>
     </div>
 
+    <div class="card-recipe--content__ingredients">
+      <h4>Ingrédients:</h4>
+      <% recipe.ingredients.each do |ingredient| %>
+        <div class="card-recipe--content__ingredients-info">
+          • <span data-counter-target="quantity"><%= ingredient.quantity %></span> <span id="submit"><%= ingredient.name %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="card-recipe--content__actions">
+      <div class="incrementer-button">
+        <a class="btn incrementer"  data-action="click->counter#decrease" data-offset="-1">-</a>
+        <span id="counter" data-counter-target="input" data-count="1"><%= recipe.people %></span>
+        <a class="btn incrementer" data-action="click->counter#increase"  data-offset="1">+</a>
+      </div>
+    </div>
+
+    <div class="card-recipe--bottom" >
+      <div class="card-recipe--bottom__icon">
+        <i class="fas fa-chevron-down" data-action="click->expander#expandcard"></i>
+      </div>
+    </div>
 
   </div>
 </div>
