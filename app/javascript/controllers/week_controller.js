@@ -80,6 +80,4 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => this.replaceCardHtml(data.recipe_cards))
   }
-
-
 }
