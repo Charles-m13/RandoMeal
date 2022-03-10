@@ -27,15 +27,22 @@
       <div class="row">
         <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
         <% @recipes.each_with_index do |recipe, index| %>
-          <div class="col-12 col-md" data-controller="counter">
+          <div class="col-12 col-md">
             <!-- Card des jours de la semaine -->
-            <div class="day unlocked" data-controller="day" data-day-target="day" data-week-target="day" data-day-recipe-id-value="<%= recipe.id %>">
+            <div class="day"
+                data-controller="day counter"
+                data-action="lock->counter#lock unlock->counter#unlock peopleUpdated->day#peopleUpdated toggleLock->week#toggleExport toggleLock->week#remainingRecipesToUnlock"
+                data-counter-people-value="<%= recipe.people %>"
+                data-day-people-value="<%= recipe.people %>"
+                data-week-target="day"
+                data-day-recipe-id-value="<%= recipe.id %>"
+                >
                 <h3 class="day-name"><%= days[index] %></h3>
                 <%= render 'shared/card', recipe: recipe %>
                 <!-- Lock de la recette -->
-                <div class="day-action" data-action="click->day#toggleLock click->week#toggleExport click->week#remainingRecipesToUnlock">
-                  <span class="btn btn--small unlock"><i class="fas fa-unlock"></i>Je bloque</span>
-                  <span class="btn btn--small lock"><i class="fas fa-lock"></i>Bloqué</span>
+                <div class="day-action" data-action="click->day#toggleLock">
+                <span class="btn btn--small unlock"><i class="fas fa-unlock"></i>Je bloque</span>
+                <span class="btn btn--small lock"><i class="fas fa-lock"></i>Bloqué</span>
                 </div>
             </div>
           </div>

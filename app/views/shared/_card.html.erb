@@ -15,7 +15,7 @@
       <h4>Ingrédients:</h4>
       <% recipe.ingredients.each do |ingredient| %>
         <div class="card-recipe--content__ingredients-info">
-          • <span data-counter-target="quantity"><%= ingredient.quantity %></span> <span id="submit"><%= ingredient.name %></span>
+          • <span data-counter-target="quantity" data-quantity="<%= ingredient.quantity %>"><%= ingredient.quantity %></span> <span id="submit"><%= ingredient.name %></span>
         </div>
       <% end %>
     </div>

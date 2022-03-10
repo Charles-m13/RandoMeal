@@ -25,30 +25,14 @@ export default class extends Controller {
   }
 
   toggleExport() {
-    let toggleButton = true
-    this.dayTargets.forEach((day) => {
-      if(day.classList.contains('unlocked')) {
-        toggleButton = false
-      }
-    })
-    if (toggleButton) {
-      this.export1Target.classList.add('d-none')
-      this.export2Target.classList.remove('d-none')
-    } else {
-      this.export2Target.classList.add('d-none')
-      this.export1Target.classList.remove('d-none')
-    }
+    const is_all_locked = this.dayTargets.every(x => x.classList.contains('locked'))
+    this.export1Target.classList.toggle('d-none', is_all_locked)
+    this.export2Target.classList.toggle('d-none', !is_all_locked)
   }
 
-  remainingRecipesToUnlock(event) {
-    if (event.currentTarget.parentNode.classList.contains('unlocked')) {
-      console.log("je décrémente")
-      this.countrecipeTarget.innerHTML ++
-    }
-    if (!event.currentTarget.parentNode.classList.contains('unlocked')) {
-      console.log("j'incrémente")
-      this.countrecipeTarget.innerHTML --
-    }
+  remainingRecipesToUnlock() {
+    const remaining = 5 - this.dayTargets.filter(x => x.classList.contains('locked')).length
+    this.countrecipeTarget.innerHTML = remaining
   }
 
   unlockDays() {
