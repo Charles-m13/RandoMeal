@@ -4,6 +4,8 @@
 <!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
 <!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
 
+![logo_randomeal](https://user-images.githubusercontent.com/16926444/157692897-0a415f48-dda1-4e64-9fa1-eba78af4fa5f.png)
+
 **RandoMeal**
  - Site internet : [http://www.randomeal.xyz](http://www.randomeal.xyz/)
  - Hébergé sur Heroku : [https://randomeal818.herokuapp.com](https://randomeal818.herokuapp.com)
@@ -13,6 +15,8 @@ Mouliné avec ♥ à Lyon par **notre équipe** :
 - Charles MOREAU : [@Charles13131](https://github.com/Charles13131)
 - Déborah MARTIN : [@nitrambed](https://github.com/nitrambed)
 - Pierre LEMASSON : [@sirchamallow](https://github.com/sirchamallow)
+
+Pour plus d'informations sur projet, consulter [notre Wiki](https://github.com/Charles13131/RandoMeal/wiki/Page-d'accueil) !
 
 *Copyright*
 © 2022-2022 RandoMeal®
