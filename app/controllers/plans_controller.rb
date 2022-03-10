@@ -30,6 +30,9 @@ class PlansController < ApplicationController
     plan_recipes << @recipe.id.to_s
     ap Recipe.where(id: plan_recipes).pluck(:name)
     cookies[:plan_recipes] = plan_recipes.join(',')
+    ap "je suis dans add"
+    ap cookies[:plan_recipes]
+
   end
 
   def remove
@@ -82,6 +85,7 @@ class PlansController < ApplicationController
   # Exporter le menu en PDF
   def export
 
+    ap cookies[:plan_recipes]
     # desirialization des cookies
     recipes_ids = cookies[:plan_recipes].split(',').map(&:to_i)
 
@@ -90,6 +94,8 @@ class PlansController < ApplicationController
     # Affiche le menu de la semaine (aléatoire avec une limite de 5)
     @recipes = Recipe.find(recipes_ids)
 
+    ap "je suis la"
+    ap @recipes
 
 
     # Bouton export (gem WickedPdf)
