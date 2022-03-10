@@ -1,3 +1,10 @@
+.scroll_to_top {
+  padding: 1rem;
+  background-color: $green-dark;
+  border-radius: 50%;
+  color: $pale;
+}
+
 .home-banner {
   height: 100vh;
   display: flex;
@@ -10,7 +17,6 @@
   background-position: center;
 
   color: $white;
-  text-shadow: 0 0 15px black;
 
   text-align: center;
 
@@ -33,7 +39,6 @@
   }
 
 }
-
 .home-feature-1 {
   padding: 2vh 0 12vh 0;
   background-image:   linear-gradient(180deg, $pale 47%, $white 100%);
@@ -41,49 +46,6 @@
   h2,
   h3 {
     color: $green-dark
-  }
-
-  .home-card-recipe {
-    background-color: transparent;
-    width: 100%;
-    height: 350px;
-    perspective: 1000px;
-  }
-
-  .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: $border-radius;
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-
-  .home-card-recipe:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  .card-front {
-    background-color: $white;
-    color: $green-dark;
-  }
-
-  .card-back {
-    background-color: $white;
-    color: $green-dark;
-    transform: rotateY(180deg);
   }
 
   p {
@@ -101,7 +63,6 @@
 }
 
 .home-feature-2 {
-  padding: 10vh 0;
   background-color: $white;
 
   h2,
@@ -123,11 +84,64 @@
 
 }
 
+.home-feature-3 {
+  padding: 5vh 0;
+  background-color: $white;
+
+  h2,
+  h3 {
+    color: $green-dark
+  }
+
+  img {
+    width: 70%;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+
+  &--content {
+    padding: 3rem;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+}
+
+
+.home-feature-4 {
+  padding: 5vh 0;
+  background-color: $white;
+
+  h2,
+  h3 {
+    color: $green-dark
+  }
+
+  img {
+    width: 70%;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+
+  &--content {
+    padding: 3rem;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+}
+
+
 .home-team {
   padding: 8vh 0;
   background-color: $green-dark;
   text-align: center;
   color: $pale;
+  margin-top: 5vh;
 
   h2 {
     margin-bottom: 3rem;
@@ -140,5 +154,17 @@
       border: 5px solid $pale;
       margin-bottom: 1.5rem;
     }
+  }
+}
+
+#scroll_to_top {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  bottom: 50px;
+  right: 30px;
+
+  img {
+    width: 25px;
   }
 }

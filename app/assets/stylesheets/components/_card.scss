@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
   transition: all 1s ease;
-  // min-height: 390px;
   background-color: $white;
   border-radius: $border-radius;
   margin-bottom: 1.5rem;
@@ -12,6 +11,7 @@
 
   &--top {
     overflow: hidden;
+
 
     &:hover &__img {
       transform: scale(1);
@@ -29,43 +29,112 @@
 
   &--content {
     padding: 1rem;
+    font-size: 0.9rem;
 
+    &__info {
+      h3 {
+        color: $green-dark;
+        font-size: 1.2rem;
+      }
 
-    h3 {
-      color: $green-dark;
-      font-size: 1.4rem;
+      span {
+        display: block;
+
+        i {
+          color: $tangerine;
+          font-size: 0.8rem;
+        }
+      }
     }
 
-    span {
-      display: block;
-      font-size: 1rem;
+    &__ingredients {
+      margin: 1rem 0;
+      h4 {
+        font-size: 1rem;
+        color: rgba($green-dark, .8);
+      }
+
+      &-info {
+        color: rgba($gray, .8);
+      }
+    }
+
+    &__actions {
+      text-align: center;
+
+
+      .counter {
+        font-weight: 700;
+      }
+
+      .incrementer-button {
+        display: inline-block;
+        background-color: #dee2e6;
+        border-radius: 20px;
+        padding: 3px;
+        margin-bottom: 28px;
+
+        .incrementer {
+          color: $white;
+          background-color: $green-dark;
+          font-weight: 700;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          padding: 2px;
+          text-decoration: none;
+          border: none;
+
+          &:hover {
+            transform: translateY(-3px);
+          }
+        }
+      }
     }
   }
 
   &--bottom {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(180deg, rgba(26,108,194,0) 0%, rgba(255,255,255,1) 88%, rgba(255,255,255,1) 100%);
 
-    i {
-      display: block;
-      padding: 0.5rem;
-      border-radius: 50%;
-      border: 1px solid #AAAAAA;
-      transition: all 500ms ease;
-      text-align: center;
-      margin: 0 auto;
-      cursor: pointer;
+    &__icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+
+      i {
+        display: block;
+        font-size: 0.6rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: 1px solid $green-dark;
+        background-color: $white;
+        color: $green-dark;
+        transition: all .5s ease;
+        text-align: center;
+        margin: 0 auto;
+        cursor: pointer;
+      }
     }
+
+
+
   }
 
 
 }
 
 .expand.card-recipe {
-  height: 1000px;
+  height: max-content;
 
-  .card-recipe--bottom i {
-    transform: rotate(180deg);
+  .card-recipe--bottom {
+    height: 0px;
+    i {
+      transform: rotate(180deg);
+    }
   }
 }

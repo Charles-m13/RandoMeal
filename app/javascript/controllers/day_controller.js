@@ -12,7 +12,8 @@ export default class extends Controller {
 
   toggleLock() {
     this.locked = !this.locked
-    this.dayTarget.classList.toggle('locked', this.locked)
+    this.dayTarget.classList.toggle('locked')
+    this.dayTarget.classList.toggle('unlocked')
     const csrfToken = document.querySelector("[name='csrf-token']").content;
     const method = this.locked ? 'add' : 'remove'
     const url = `/plans/${method}?recipe_id=${this.recipeIdValue}`
