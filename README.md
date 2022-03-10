@@ -16,6 +16,8 @@ Mouliné avec ♥ à Lyon par **notre équipe** :
 - Déborah MARTIN : [@nitrambed](https://github.com/nitrambed)
 - Pierre LEMASSON : [@sirchamallow](https://github.com/sirchamallow)
 
+Pour plus d'informations sur projet, consulter [notre Wiki](https://github.com/Charles13131/RandoMeal/wiki) !
+
 *Copyright*
 © 2022-2022 RandoMeal®
 
