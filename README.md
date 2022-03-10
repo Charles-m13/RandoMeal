@@ -4,6 +4,8 @@
 <!-- ██   ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██  ██  ██ ██      ██   ██ ██       -->
 <!-- ██   ██ ██   ██ ██   ████ ██████   ██████  ██      ██ ███████ ██   ██ ███████  -->
 
+![randomeal_socialsizes](https://user-images.githubusercontent.com/16926444/157692758-2e77cf41-0376-4c0b-839f-419b71db0a74.png)
+
 **RandoMeal**
  - Site internet : [http://www.randomeal.xyz](http://www.randomeal.xyz/)
  - Hébergé sur Heroku : [https://randomeal818.herokuapp.com](https://randomeal818.herokuapp.com)
