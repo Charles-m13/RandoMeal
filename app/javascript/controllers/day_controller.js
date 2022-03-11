@@ -15,7 +15,6 @@ export default class extends Controller {
     this.peopleValue = event.detail
   }
 
-
   updateRecipeIdValue(event) {
     this.recipeIdValue = event.detail
   }
