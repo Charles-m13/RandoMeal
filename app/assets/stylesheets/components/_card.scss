@@ -35,6 +35,10 @@
       h3 {
         color: $green-dark;
         font-size: 1.2rem;
+
+        &:hover {
+          color: rgba($green-dark, .8);
+        }
       }
 
       span {

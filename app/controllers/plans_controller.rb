@@ -86,7 +86,7 @@ class PlansController < ApplicationController
     recipes_ids = cookies[:plan_recipes].split(',').map(&:to_i)
 
     @nb_persons = cookies[:nb_persons].split(',').map(&:to_i)
-
+    ap recipes_ids
     # Affiche le menu de la semaine (aléatoire avec une limite de 5)
     @recipes = Recipe.find(recipes_ids)
 

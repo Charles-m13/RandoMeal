@@ -1,4 +1,4 @@
-<div class="card-recipe" data-controller="expander" data-expander-target="output">
+<div class="card-recipe" data-controller="expander" data-expander-target="output" data-recipe-id="<%= recipe.id %>">
   <div class="card-recipe--top">
     <%= image_tag recipe.image, class: "card-recipe--top__img" %>
   </div>
@@ -6,7 +6,9 @@
   <div class="card-recipe--content">
 
     <div class="card-recipe--content__info">
-      <h3><%= recipe.name %></h3>
+      <%= link_to recipe.url_marmiton, target: :blank, style: 'text-decoration: none;' do %>
+        <h3><%= recipe.name %></h3>
+      <% end %>
       <span class="card-recipe--content__prep-time"><i class="fas fa-hourglass-end"></i> Prépration : <%= recipe.prep_duration %> minutes</span>
       <span class="card-recipe--content__total-time"><i class="fas fa-utensils"></i> Total : <%= recipe.total_duration %> minutes</span>
     </div>
