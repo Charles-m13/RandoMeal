@@ -15,6 +15,10 @@ export default class extends Controller {
     this.peopleValue = event.detail
   }
 
+  updateRecipeIdValue(event) {
+    this.recipeIdValue = event.detail
+  }
+
   toggleLock() {
     this.locked = !this.locked
     this.element.classList.toggle('locked', this.locked)

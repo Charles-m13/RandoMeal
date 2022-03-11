@@ -31,7 +31,7 @@
             <!-- Card des jours de la semaine -->
             <div class="day"
                 data-controller="day counter"
-                data-action="lock->counter#lock unlock->counter#unlock peopleUpdated->day#peopleUpdated toggleLock->week#toggleExport toggleLock->week#remainingRecipesToUnlock"
+                data-action="recipeIdChanged->day#updateRecipeIdValue lock->counter#lock unlock->counter#unlock peopleUpdated->day#peopleUpdated toggleLock->week#toggleExport toggleLock->week#remainingRecipesToUnlock"
                 data-counter-people-value="<%= recipe.people %>"
                 data-day-people-value="<%= recipe.people %>"
                 data-week-target="day"

@@ -30,6 +30,8 @@ class PlansController < ApplicationController
     plan_recipes << @recipe.id.to_s
     ap Recipe.where(id: plan_recipes).pluck(:name)
     cookies[:plan_recipes] = plan_recipes.join(',')
+    ap "je suis dans #{__method__}"
+    ap cookies[:plan_recipes]
   end
 
   def remove
@@ -54,6 +56,7 @@ class PlansController < ApplicationController
   end
 
   def refresh
+
     plan_recipes = cookies[:plan_recipes].split(',')
     already_proposed = cookies[:already_proposed].split(',')
     nb = 5 - plan_recipes.length
@@ -81,6 +84,8 @@ class PlansController < ApplicationController
 
   # Exporter le menu en PDF
   def export
+    ap "je suis dans #{__method__}"
+    ap cookies[:plan_recipes]
 
     # desirialization des cookies
     recipes_ids = cookies[:plan_recipes].split(',').map(&:to_i)

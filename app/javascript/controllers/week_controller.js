@@ -44,6 +44,10 @@ export default class extends Controller {
     recipeCardHtml.forEach((recipeCardHtml, index) => {
       const currentDayElement = currentDayElements[index]
       currentDayElement.querySelector('.card-recipe').outerHTML = recipeCardHtml
+
+      const recipeCard = currentDayElement.querySelector('.card-recipe')
+      const event = new CustomEvent('recipeIdChanged', { detail: recipeCard.dataset.recipeId });
+      currentDayElement.dispatchEvent(event)
     })
   }
 
